@@ -1,0 +1,164 @@
+@import 'normalize';
+@import 'toolkit';
+@import 'toolkit/kickstart';
+@import 'breakpoint';
+@import 'singularitygs';
+@import 'compass/css3';
+@import 'helpers';
+
+@include sgs-change("debug",true);
+
+@include add-grid(12);
+@include add-gutter(1/3);
+
+/* COLORS: */
+$blue: #00436F;
+$bluelt: #006DAF;
+$grey: desaturate(darken(#9C938E, 15%), 3%); // #525655;
+$greydk: desaturate(lighten(#252120, 10%), 3%); // #E5E4DE; // lighten($grey, 50%);
+$greylt: desaturate(darken(#E5E4DE, 5%), 3%); // #252120; // darken($grey, 30%);
+$red: #a92f41; // #7B2519;
+$redlt: #c0392b; // lighten($red, 15%);
+$mint: #91c7a9;
+
+/*
+font-family:'Adelle W01 Light';
+font-family:'Adelle W01 Light Italic';
+font-family:'Adelle W01 Regular';
+font-family:'Adelle W01 Italic';
+font-family:'LinotypeUniversW01-Ligh 723625';
+font-family:'LinotypeUniversW01-LtCn';
+font-family:'LinotypeUniversW01-Medi 723673';
+font-family:'LinotypeUniversW01-MdCn';
+font-family:'LinotypeUniversW01-Ligh 723622';
+font-family:'LinotypeUniversW01-MdCm';
+
+*/
+
+$breakpoints:
+  'handheld-only' (max-width    679px),
+  'narrow'        (min-width    680px),
+  'medium'        (min-width    880px), // First two-column layout
+  'wide'          (min-width   1080px);
+
+
+body {
+  background: $greylt;
+  color: $grey;
+  font-family:'LinotypeUniversW01-Ligh 723625';
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+#{headers()} {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+strong {
+  font-family:'LinotypeUniversW01-Medi 723673';
+  font-weight: normal;
+}
+
+#wrap {
+  max-width: 70em;
+
+  margin: 1em auto;
+  border: 1px solid #ddd;
+  background: #fff;
+
+  // @include background-grid;
+}
+
+.contact {
+  @extend .listreset;
+  dt {
+    @extend .visuallyhidden;
+  }
+}
+
+section {
+
+  // Word experience, etc titles
+  h2 {
+    @include grid-span(3, 1);
+    text-align: right;
+    clear: both;
+
+    font-size: 2em;
+    font-family:'LinotypeUniversW01-Ligh 723622';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    color: $blue;
+  }
+
+  // Individual jobs/positions/etc...
+  article {
+    @extend .clearfix;
+    clear: both;
+  }
+
+  h3 {
+    @extend .clearfix;
+    margin: 0;
+  }
+
+  #{nest("&.work, &.education", "article")} {
+    h3, .date {
+      font-size: 1.25em;
+    }
+
+    .date {
+      @include grid-span(2, 4);
+    }
+
+    .position {
+      @include grid-span(3, 6);
+      font-weight: 600;
+    }
+
+    .organization {
+      @include grid-span(2, 9);
+    }
+
+    .location {
+      @include grid-span(2, 11);
+      text-align: right;
+    }
+
+    p, ul {
+      @include grid-span(8, 4);
+      clear: both;
+    }
+  }
+
+  #{nest("&.community, &.biblio", "article")} {
+    h3, .date {
+      font-size: 1.125em;
+    }
+
+    .date {
+      @include grid-span(2, 4);
+    }
+
+    h3 {
+      @include grid-span(7, 6);
+    }
+  }
+
+  #{nest("&.creations", "article")} {
+    h3 {
+      @include grid-span(2, 4);
+    }
+
+    p {
+      @include grid-span(7, 6);
+    }
+
+    h3, p {
+      font-size: 1.25em;
+      margin-top: 0;
+    }
+  }
+}

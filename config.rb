@@ -1,4 +1,6 @@
 require 'breakpoint'
+require 'toolkit'
+require 'singularitygs'
 # Require any additional compass plugins here.
 
 
