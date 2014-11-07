@@ -8,9 +8,6 @@
 
 @include sgs-change("debug",true);
 
-@include add-grid(12);
-@include add-gutter(1/3);
-
 /* COLORS: */
 $blue: #00436F;
 $bluelt: #006DAF;
@@ -35,15 +32,20 @@ font-family:'LinotypeUniversW01-MdCm';
 
 */
 
-$breakpoints:
-  'handheld-only' (max-width    679px),
-  'narrow'        (min-width    680px),
-  'medium'        (min-width    880px), // First two-column layout
-  'wide'          (min-width   1080px);
+$headers-left: 850px;
+$details-split: 500px 849px;
+$details-table: 850px 999px;
+$details-horizontal: 1000px;
+
+@include add-grid(1);
+@include add-grid(2 at 500px);
+@include add-grid(1 2 2 at 850px);
+@include add-grid(1 2 2 2 1 at 1000px);
+@include add-gutter(1/8 at 500px);
+@include add-gutter(1/4 at 850px);
 
 
 body {
-  background: $greylt;
   color: $grey;
   font-family:'LinotypeUniversW01-Ligh 723625';
   font-size: 1em;
@@ -61,13 +63,11 @@ strong {
 }
 
 #wrap {
+  @include background-grid($color: #ccc);
+  @include clearfix();
   max-width: 70em;
-
   margin: 1em auto;
-  border: 1px solid #ddd;
-  background: #fff;
 
-  // @include background-grid;
 }
 
 .contact {
@@ -81,8 +81,7 @@ section {
 
   // Word experience, etc titles
   h2 {
-    @include grid-span(3, 1);
-    text-align: right;
+    text-align: center;
     clear: both;
 
     font-size: 2em;
@@ -91,6 +90,14 @@ section {
     letter-spacing: 1px;
 
     color: $blue;
+    @include breakpoint($headers-left) {
+      text-align: right;
+      @include grid-span(1,1);
+    }
+
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,1);
+    }
   }
 
   // Individual jobs/positions/etc...
@@ -110,26 +117,70 @@ section {
     }
 
     .date {
-      @include grid-span(2, 4);
+      @include breakpoint($details-split) {
+        @include grid-span(1,2);
+      }
+      @include breakpoint($details-table) {
+        @include grid-span(1,3);
+      }
+      @include breakpoint($details-horizontal) {
+        @include grid-span(1,2);
+      }
     }
 
     .position {
-      @include grid-span(3, 6);
+      @include breakpoint($details-split) {
+        text-align: right;
+        @include grid-span(1,1);
+      }
+      @include breakpoint($details-table) {
+        @include grid-span(1,2);
+      }
+      @include breakpoint($details-horizontal) {
+        @include grid-span(1,4);
+      }
       font-weight: 600;
     }
 
     .organization {
-      @include grid-span(2, 9);
+      @include breakpoint($details-split) {
+        text-align: right;
+        @include grid-span(1,1);
+        clear: left;
+      }
+      @include breakpoint($details-table) {
+        @include grid-span(1,2);
+        clear: left;
+      }
+      @include breakpoint($details-horizontal) {
+        @include grid-span(1,3);
+      }
     }
 
     .location {
-      @include grid-span(2, 11);
-      text-align: right;
+      @include breakpoint($details-split) {
+        @include grid-span(1,2);
+      }
+      @include breakpoint($details-table) {
+        @include grid-span(1,3);
+      }
+      @include breakpoint($details-horizontal) {
+        @include grid-span(1,5);
+        text-align: right;
+      }
     }
 
     p, ul {
-      @include grid-span(8, 4);
+
+      @include breakpoint($headers-left) {
+        @include grid-span(2, 2);
       clear: both;
+      }
+
+      @include breakpoint($details-horizontal) {
+        @include grid-span(3, 2);
+      clear: both;
+      }
     }
   }
 
@@ -139,21 +190,21 @@ section {
     }
 
     .date {
-      @include grid-span(2, 4);
+      
     }
 
     h3 {
-      @include grid-span(7, 6);
+      
     }
   }
 
   #{nest("&.creations", "article")} {
     h3 {
-      @include grid-span(2, 4);
+      
     }
 
     p {
-      @include grid-span(7, 6);
+      
     }
 
     h3, p {
