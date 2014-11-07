@@ -36,6 +36,7 @@ $headers-left: 850px;
 $details-split: 500px 849px;
 $details-table: 850px 999px;
 $details-horizontal: 1000px;
+$extras-dates-split: 1000px;
 
 @include add-grid(1);
 @include add-grid(2 at 500px);
@@ -77,139 +78,151 @@ strong {
   }
 }
 
-section {
+// Word experience, etc titles
+h2 {
+  text-align: center;
+  clear: both;
 
-  // Word experience, etc titles
-  h2 {
-    text-align: center;
-    clear: both;
+  font-size: 2em;
+  font-family:'LinotypeUniversW01-Ligh 723622';
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
-    font-size: 2em;
-    font-family:'LinotypeUniversW01-Ligh 723622';
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  color: $blue;
+  @include breakpoint($headers-left) {
+    text-align: right;
+    @include grid-span(1,1);
+  }
 
-    color: $blue;
-    @include breakpoint($headers-left) {
+  @include breakpoint($details-horizontal) {
+    @include grid-span(1,1);
+  }
+}
+
+// Individual jobs/positions/etc...
+article {
+  @extend .clearfix;
+  clear: both;
+}
+
+h3 {
+  @extend .clearfix;
+  margin: 0;
+}
+
+.work, .education {
+  h3, .date {
+    font-size: 1.25em;
+  }
+
+  .date {
+    @include breakpoint($details-split) {
+      @include grid-span(1,2);
+    }
+    @include breakpoint($details-table) {
+      @include grid-span(1,3);
+    }
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,2);
+    }
+  }
+
+  .position {
+    @include breakpoint($details-split) {
       text-align: right;
       @include grid-span(1,1);
     }
-
+    @include breakpoint($details-table) {
+      @include grid-span(1,2);
+    }
     @include breakpoint($details-horizontal) {
+      @include grid-span(1,4);
+    }
+    font-weight: 600;
+  }
+
+  .organization {
+    @include breakpoint($details-split) {
+      text-align: right;
       @include grid-span(1,1);
+      clear: left;
+    }
+    @include breakpoint($details-table) {
+      @include grid-span(1,2);
+      clear: left;
+    }
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,3);
     }
   }
 
-  // Individual jobs/positions/etc...
-  article {
-    @extend .clearfix;
-    clear: both;
+  .location {
+    @include breakpoint($details-split) {
+      @include grid-span(1,2);
+    }
+    @include breakpoint($details-table) {
+      @include grid-span(1,3);
+    }
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,5);
+      text-align: right;
+    }
+  }
+
+  p, ul {
+
+    @include breakpoint($headers-left) {
+      @include grid-span(2, 2);
+      clear: both;
+    }
+
+    @include breakpoint($details-horizontal) {
+      @include grid-span(3, 2);
+      clear: both;
+    }
+  }
+}
+
+.community, .biblio {
+  h3, .date {
+    font-size: 1.125em;
+  }
+
+  .date {
+    @include breakpoint($headers-left) {
+      @include grid-span(1, 2);
+      clear: both;
+    }
+    @include breakpoint($extras-dates-split) {
+      @include grid-span(1, 2);
+    }
   }
 
   h3 {
-    @extend .clearfix;
-    margin: 0;
-  }
-
-  #{nest("&.work, &.education", "article")} {
-    h3, .date {
-      font-size: 1.25em;
-    }
-
-    .date {
-      @include breakpoint($details-split) {
-        @include grid-span(1,2);
-      }
-      @include breakpoint($details-table) {
-        @include grid-span(1,3);
-      }
-      @include breakpoint($details-horizontal) {
-        @include grid-span(1,2);
-      }
-    }
-
-    .position {
-      @include breakpoint($details-split) {
-        text-align: right;
-        @include grid-span(1,1);
-      }
-      @include breakpoint($details-table) {
-        @include grid-span(1,2);
-      }
-      @include breakpoint($details-horizontal) {
-        @include grid-span(1,4);
-      }
-      font-weight: 600;
-    }
-
-    .organization {
-      @include breakpoint($details-split) {
-        text-align: right;
-        @include grid-span(1,1);
-        clear: left;
-      }
-      @include breakpoint($details-table) {
-        @include grid-span(1,2);
-        clear: left;
-      }
-      @include breakpoint($details-horizontal) {
-        @include grid-span(1,3);
-      }
-    }
-
-    .location {
-      @include breakpoint($details-split) {
-        @include grid-span(1,2);
-      }
-      @include breakpoint($details-table) {
-        @include grid-span(1,3);
-      }
-      @include breakpoint($details-horizontal) {
-        @include grid-span(1,5);
-        text-align: right;
-      }
-    }
-
-    p, ul {
-
-      @include breakpoint($headers-left) {
-        @include grid-span(2, 2);
+    @include breakpoint($headers-left) {
+      @include grid-span(2, 2);
       clear: both;
-      }
+    }
+    @include breakpoint($extras-dates-split) {
+      @include grid-span(3, 3);
+    }
+  }
+}
 
-      @include breakpoint($details-horizontal) {
-        @include grid-span(3, 2);
+.creations {
+  h3 {
+    @include breakpoint($headers-left) {
+      @include grid-span(1, 2);
       clear: both;
-      }
     }
   }
 
-  #{nest("&.community, &.biblio", "article")} {
-    h3, .date {
-      font-size: 1.125em;
-    }
-
-    .date {
-      
-    }
-
-    h3 {
-      
-    }
+  p {
+    
   }
 
-  #{nest("&.creations", "article")} {
-    h3 {
-      
-    }
-
-    p {
-      
-    }
-
-    h3, p {
-      font-size: 1.25em;
-      margin-top: 0;
-    }
+  h3, p {
+    font-size: 1.25em;
+    margin-top: 0;
   }
 }
