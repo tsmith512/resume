@@ -53,7 +53,8 @@ $creations-rows: 1000px;
 
 body {
   color: $grey;
-  font-family:'LinotypeUniversW01-Ligh 723625';
+  font-family: 'Whitney SSm A', 'Whitney SSm B';
+  font-weight: 400;
   font-size: 1em;
   line-height: 1.5;
 }
@@ -61,11 +62,11 @@ body {
 #{headers()} {
   font-family: inherit;
   font-weight: inherit;
+  font-style: normal;
 }
 
 strong {
-  font-family:'LinotypeUniversW01-Medi 723673';
-  font-weight: normal;
+  font-weight: 600;
 }
 
 #wrap {
@@ -91,8 +92,9 @@ h2 {
   text-align: center;
   clear: both;
 
+  font-family: 'Tungsten Narrow A', 'Tungsten Narrow B';
+  font-weight: 500;
   font-size: 2em;
-  font-family:'LinotypeUniversW01-Ligh 723622';
   text-transform: uppercase;
   letter-spacing: 1px;
 
