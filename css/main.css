@@ -168,11 +168,11 @@ img, video { max-width: 100%; height: auto; }
 
 .invisible { visibility: hidden; }
 
-.clearfix:before, article:before, h3:before, .clearfix:after, article:after, h3:after { content: " "; display: table; }
+.clearfix:before, section:before, article:before, h3:before, .clearfix:after, section:after, article:after, h3:after { content: " "; display: table; }
 
-.clearfix:after, article:after, h3:after { clear: both; }
+.clearfix:after, section:after, article:after, h3:after { clear: both; }
 
-.clearfix, article, h3 { *zoom: 1; }
+.clearfix, section, article, h3 { *zoom: 1; }
 
 .listreset, .contact, .listreset li, .contact li, .listreset dt, .contact dt, .listreset dd, .contact dd { margin: 0; padding: 0; }
 
@@ -196,10 +196,10 @@ h1, h2, h3, h4, h5, h6 { font-family: inherit; font-weight: inherit; }
 
 strong { font-family: 'LinotypeUniversW01-Medi 723673'; font-weight: normal; }
 
-#wrap { background-image: linear-gradient(to right, #cccccc, #cccccc 0%, #d8d8d8 0%, #d8d8d8 25%); max-width: 70em; margin: 1em auto; }
-@media (min-width: 500px) { #wrap { background-image: linear-gradient(to right, #cccccc 0%, #cccccc 47.05882%, #d8d8d8 47.05882%, #d8d8d8 52.94118%, #cccccc 52.94118%, #cccccc); } }
-@media (min-width: 850px) { #wrap { background-image: linear-gradient(to right, #cccccc 0%, #cccccc 18.18182%, #d8d8d8 18.18182%, #d8d8d8 22.72727%, #cccccc 22.72727%, #cccccc 59.09091%, #d8d8d8 59.09091%, #d8d8d8 63.63636%, #cccccc 63.63636%, #cccccc); } }
-@media (min-width: 1000px) { #wrap { background-image: linear-gradient(to right, #cccccc 0%, #cccccc 11.11111%, #d8d8d8 11.11111%, #d8d8d8 13.88889%, #cccccc 13.88889%, #cccccc 36.11111%, #d8d8d8 36.11111%, #d8d8d8 38.88889%, #cccccc 38.88889%, #cccccc 61.11111%, #d8d8d8 61.11111%, #d8d8d8 63.88889%, #cccccc 63.88889%, #cccccc 86.11111%, #d8d8d8 86.11111%, #d8d8d8 88.88889%, #cccccc 88.88889%, #cccccc); } }
+#wrap { background-image: linear-gradient(to right, #dddddd, #dddddd 0%, #e5e5e5 0%, #e5e5e5 25%); max-width: 70em; margin: 1em auto; }
+@media (min-width: 500px) { #wrap { background-image: linear-gradient(to right, #dddddd 0%, #dddddd 47.05882%, #e5e5e5 47.05882%, #e5e5e5 52.94118%, #dddddd 52.94118%, #dddddd); } }
+@media (min-width: 850px) { #wrap { background-image: linear-gradient(to right, #dddddd 0%, #dddddd 18.18182%, #e5e5e5 18.18182%, #e5e5e5 22.72727%, #dddddd 22.72727%, #dddddd 59.09091%, #e5e5e5 59.09091%, #e5e5e5 63.63636%, #dddddd 63.63636%, #dddddd); } }
+@media (min-width: 1000px) { #wrap { background-image: linear-gradient(to right, #dddddd 0%, #dddddd 11.11111%, #e5e5e5 11.11111%, #e5e5e5 13.88889%, #dddddd 13.88889%, #dddddd 36.11111%, #e5e5e5 36.11111%, #e5e5e5 38.88889%, #dddddd 38.88889%, #dddddd 61.11111%, #e5e5e5 61.11111%, #e5e5e5 63.88889%, #dddddd 63.88889%, #dddddd 86.11111%, #e5e5e5 86.11111%, #e5e5e5 88.88889%, #dddddd 88.88889%, #dddddd); } }
 #wrap:after { content: ""; display: table; clear: both; }
 
 h2 { text-align: center; clear: both; font-size: 2em; font-family: 'LinotypeUniversW01-Ligh 723622'; text-transform: uppercase; letter-spacing: 1px; color: #00436f; }
@@ -228,10 +228,18 @@ h3 { margin: 0; }
 @media (min-width: 1000px) { .work p, .work ul, .education p, .education ul { -sgs-span-settings: ("span": 3, "location": 2, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 72.22222%; float: left; margin-right: -100%; margin-left: 13.88889%; clear: none; clear: both; } }
 
 .community h3, .community .date, .biblio h3, .biblio .date { font-size: 1.125em; }
+@media (max-width: 849px) { .community .date, .biblio .date { text-align: center; } }
 @media (min-width: 850px) { .community .date, .biblio .date { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: both; } }
 @media (min-width: 1000px) { .community .date, .biblio .date { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 13.88889%; clear: none; } }
 @media (min-width: 850px) { .community h3, .biblio h3 { -sgs-span-settings: ("span": 2, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 77.27273%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: both; } }
 @media (min-width: 1000px) { .community h3, .biblio h3 { -sgs-span-settings: ("span": 3, "location": 3, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 61.11111%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
 
-@media (min-width: 850px) { .creations h3 { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: both; } }
 .creations h3, .creations p { font-size: 1.25em; margin-top: 0; }
+.creations h3 { font-weight: bold; }
+@media (max-width: 499px) { .creations h3 { text-align: center; } }
+@media (min-width: 500px) and (max-width: 849px) { .creations article:nth-child(2n) { -sgs-span-settings: ("span": 1, "location": 1, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: left; }
+  .creations article:nth-child(2n+1) { -sgs-span-settings: ("span": 1, "location": 2, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 850px) and (max-width: 999px) { .creations article:nth-child(2n) { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: left; }
+  .creations article:nth-child(2n+1) { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 1000px) { .creations h3 { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 13.88889%; clear: none; }
+  .creations p { -sgs-span-settings: ("span": 2, "location": 3, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.22222%; float: left; margin-right: -100%; margin-left: 38.88889%; clear: none; } }

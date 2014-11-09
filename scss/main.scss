@@ -36,7 +36,12 @@ $headers-left: 850px;
 $details-split: 500px 849px;
 $details-table: 850px 999px;
 $details-horizontal: 1000px;
+$extras-single: max-width 849px;
 $extras-dates-split: 1000px;
+$creations-single: max-width 499px;
+$creations-double: 500px 849px;
+$creations-boxes: 850px 999px;
+$creations-rows: 1000px;
 
 @include add-grid(1);
 @include add-grid(2 at 500px);
@@ -64,11 +69,14 @@ strong {
 }
 
 #wrap {
-  @include background-grid($color: #ccc);
+  @include background-grid($color: #ddd);
   @include clearfix();
   max-width: 70em;
   margin: 1em auto;
+}
 
+section {
+  @extend .clearfix;
 }
 
 .contact {
@@ -189,6 +197,9 @@ h3 {
   }
 
   .date {
+    @include breakpoint($extras-single) {
+      text-align: center;
+    }
     @include breakpoint($headers-left) {
       @include grid-span(1, 2);
       clear: both;
@@ -210,19 +221,51 @@ h3 {
 }
 
 .creations {
-  h3 {
-    @include breakpoint($headers-left) {
-      @include grid-span(1, 2);
-      clear: both;
-    }
-  }
-
-  p {
-    
-  }
-
   h3, p {
     font-size: 1.25em;
     margin-top: 0;
+  }
+
+  h3 {
+    font-weight: bold;
+  }
+
+  @include breakpoint($creations-single) {
+    h3 {
+      text-align: center;
+    }
+  }
+
+  @include breakpoint($creations-double) {
+    article {
+      &:nth-child(2n) {
+        @include grid-span(1, 1);
+        clear: left;
+      }
+      &:nth-child(2n+1) {
+        @include grid-span(1, 2);
+      }
+    }
+  }
+
+  @include breakpoint($creations-boxes) {
+    article {
+      &:nth-child(2n) {
+        @include grid-span(1, 2);
+        clear: left;
+      }
+      &:nth-child(2n+1) {
+        @include grid-span(1, 3);
+      }
+    }
+  }
+
+  @include breakpoint($creations-rows) {
+    h3 {
+      @include grid-span(1,2);
+    }
+    p {
+      @include grid-span(2,3);
+    }
   }
 }
