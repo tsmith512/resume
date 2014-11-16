@@ -29,6 +29,7 @@ $details-table: 850px 999px;
 $details-horizontal: 1000px;
 $extras-single: max-width 599px;
 $extras-boxes: 600px 849px;
+$extras-multiline: 850px;
 $extras-dates-split: 1000px;
 $creations-single: max-width 499px;
 $creations-double: 500px 849px;
@@ -69,6 +70,10 @@ a {
 
 strong {
   font-weight: 600;
+}
+
+em {
+  font-style: italic;
 }
 
 section ul {
@@ -455,9 +460,30 @@ h3 {
     @include breakpoint($extras-dates-split) {
       margin-bottom: 1em;
       @include grid-span(3, 3);
-      strong {
-        display: block;
-      }
+    }
+  }
+}
+
+.community {
+  @include breakpoint($extras-multiline) {
+    strong:after {
+      content: " ";
+      display: block;
+    }
+  }
+}
+
+.biblio {
+  @include breakpoint($extras-single) {
+    strong:after {
+      content: " ";
+      display: block;
+    }
+  }
+  @include breakpoint($extras-multiline) {
+    em:after {
+      content: " ";
+      display: block;
     }
   }
 }
