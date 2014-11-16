@@ -24,6 +24,8 @@ $header-top-margin: 850px 999px;
 $header-expanded: 1000px;
 $headers-left: 850px;
 $social-large: 1240px;
+$work-single: max-width 499px;
+$work-dividers: max-width 849px;
 $details-split: 500px 849px;
 $details-table: 850px 999px;
 $details-horizontal: 1000px;
@@ -40,7 +42,7 @@ $creations-rows: 1000px;
 @include add-grid(2);
 $header-split-grid: 1 1 2; // A grid override we'll use in headers
 @include add-grid(1 2 2 at 850px);
-@include add-grid(1 2 2 2 1 at 1000px);
+@include add-grid(1 2 2 3 1 at 1000px);
 @include add-gutter(1/8 at 500px);
 @include add-gutter(1/4 at 850px);
 
@@ -55,10 +57,10 @@ body {
 
 a {
   text-decoration: none;
-  color: $blue;
+  color: $bluelt;
 
   &:hover {
-    color: $bluelt;
+    color: $red;
   }
 }
 
@@ -76,10 +78,13 @@ em {
   font-style: italic;
 }
 
+p {
+  margin-bottom: 1em;
+}
+
 section ul {
   list-style: square;
   list-style-position: outside;
-  margin-top: 1em;
 
   li {
     margin-left: 2em;
@@ -88,11 +93,17 @@ section ul {
 }
 
 #wrap {
-  @include background-grid($color: #ddd);
+  // @include background-grid($color: #ddd);
   @include clearfix();
-  width: 96%;
+  width: 94%;
   max-width: 80em;
-  margin: 1em auto;
+  margin: 2em auto;
+
+  border-top: 4px solid #eee;
+  border-bottom: 4px solid #eee;
+  padding: 2em 0;
+
+  position: relative;
 }
 
 header {
@@ -131,7 +142,9 @@ header {
     }
     @include breakpoint($header-expanded) {
       @include grid-span(1, 2);
+      text-align: right;
       padding-left: 0;
+      white-space: nowrap;
     }
   }
 
@@ -232,7 +245,7 @@ header {
 
   @include breakpoint($header-expanded) {
     @include grid-span(1, 1);
-    margin-bottom: 3em;
+    margin-bottom: -1em;
   }
 }
 
@@ -273,14 +286,16 @@ header {
   }
 
   @include breakpoint($header-expanded) {
-    @include grid-span(1, 1);
+    @include grid-span(1, 2);
     clear: left;
     margin-top: -2em;
-    max-width: none;
+
+    position: relative;
+    left: -1em;
+    z-index: -1;
 
     span {
       background-position: top center;
-      max-width: 120px;
       margin: 0 auto;
     }
   }
@@ -293,7 +308,6 @@ section {
 
 // Word experience, etc titles
 h2 {
-  margin-top: 1em;
   text-align: center;
   clear: both;
 
@@ -331,6 +345,22 @@ h3 {
 .work, .education {
   h3, .date {
     font-size: 1.25em;
+
+    @include breakpoint($work-single) {
+      text-align: center;
+    }
+  }
+
+  article {
+    @include breakpoint($work-dividers) {
+      border-top: 1px solid #eee;
+      padding-top: 1em;
+
+      &:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+    }
   }
 
   .date {
@@ -360,13 +390,18 @@ h3 {
   }
 
   .organization {
+    @include breakpoint($work-single) {
+      display: inline;
+    }
     @include breakpoint($details-split) {
       text-align: right;
       @include grid-span(1,1);
+      font-weight: 600;
       clear: left;
     }
     @include breakpoint($details-table) {
       @include grid-span(1,2);
+      font-weight: 600;
       clear: left;
     }
     @include breakpoint($details-horizontal) {
@@ -375,6 +410,9 @@ h3 {
   }
 
   .location {
+    @include breakpoint($work-single) {
+      display: inline;
+    }
     @include breakpoint($details-split) {
       @include grid-span(1,2);
     }
@@ -474,12 +512,6 @@ h3 {
 }
 
 .biblio {
-  @include breakpoint($extras-single) {
-    strong:after {
-      content: " ";
-      display: block;
-    }
-  }
   @include breakpoint($extras-multiline) {
     em:after {
       content: " ";
