@@ -52,6 +52,11 @@ body {
 
 a {
   text-decoration: none;
+  color: $blue;
+
+  &:hover {
+    color: $bluelt;
+  }
 }
 
 #{headers()} {
@@ -160,6 +165,7 @@ header {
 
       @include breakpoint($social-large) {
         margin-left: 16px;
+        width: 42px;
       }
 
       text-indent: 100%;
@@ -170,11 +176,6 @@ header {
         repeat: no-repeat
       }
 
-      $social: 'facebook' 'twitter' 'linkedin' 'github' '500px' 'behance' 'drupal';
-
-      @each $network in $social {
-        #{'&[href*="' + $network + '"]'} { background-image: image-url($network + '.svg'); }
-      }
     }
 
   }
