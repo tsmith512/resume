@@ -29,104 +29,134 @@ img, video { max-width: 100%; height: auto; }
 
 .invisible { visibility: hidden; }
 
-.clearfix:before, header:before, section:before, article:before, h3:before, .clearfix:after, header:after, section:after, article:after, h3:after { content: " "; display: table; }
+.clearfix:before, section:before, header:before, article:before, h3:before, .clearfix:after, section:after, header:after, article:after, h3:after { content: " "; display: table; }
 
-.clearfix:after, header:after, section:after, article:after, h3:after { clear: both; }
+.clearfix:after, section:after, header:after, article:after, h3:after { clear: both; }
 
-.clearfix, header, section, article, h3 { *zoom: 1; }
+.clearfix, section, header, article, h3 { *zoom: 1; }
 
 .listreset, .listreset li, .listreset dt, .listreset dd { margin: 0; padding: 0; }
 
-/* COLORS: */
-body { color: #736e6b; font-family: 'Whitney SSm A', 'Whitney SSm B'; font-weight: 400; font-size: 1em; line-height: 1.5; }
+body { color: #736e6b; font-family: 'Whitney SSm A', 'Whitney SSm B'; font-weight: 400; font-size: 1em; line-height: 1.625; }
+@media (min-width: 750px) { body { background-color: #eee; } }
 
-a { text-decoration: none; }
+a { text-decoration: none; color: #006daf; }
+a:hover { color: #a92f41; }
 
 h1, h2, h3, h4, h5, h6 { font-family: inherit; font-weight: inherit; font-style: normal; }
 
 strong { font-weight: 600; }
 
-section ul { list-style: square; list-style-position: outside; margin-top: 1em; }
+em { font-style: italic; }
+
+.nowrap { white-space: nowrap; }
+
+p { margin-bottom: 1em; }
+
+section ul { list-style: square; list-style-position: outside; }
 section ul li { margin-left: 2em; }
 section ul li + li { margin-top: 1em; }
 
-#wrap { background-image: linear-gradient(to right, #dddddd, #dddddd 0%, #e5e5e5 0%, #e5e5e5 25%); width: 96%; max-width: 80em; margin: 1em auto; }
-@media (min-width: 500px) { #wrap { background-image: linear-gradient(to right, #dddddd 0%, #dddddd 47.05882%, #e5e5e5 47.05882%, #e5e5e5 52.94118%, #dddddd 52.94118%, #dddddd); } }
-@media (min-width: 850px) { #wrap { background-image: linear-gradient(to right, #dddddd 0%, #dddddd 18.18182%, #e5e5e5 18.18182%, #e5e5e5 22.72727%, #dddddd 22.72727%, #dddddd 59.09091%, #e5e5e5 59.09091%, #e5e5e5 63.63636%, #dddddd 63.63636%, #dddddd); } }
-@media (min-width: 1000px) { #wrap { background-image: linear-gradient(to right, #dddddd 0%, #dddddd 11.11111%, #e5e5e5 11.11111%, #e5e5e5 13.88889%, #dddddd 13.88889%, #dddddd 36.11111%, #e5e5e5 36.11111%, #e5e5e5 38.88889%, #dddddd 38.88889%, #dddddd 61.11111%, #e5e5e5 61.11111%, #e5e5e5 63.88889%, #dddddd 63.88889%, #dddddd 86.11111%, #e5e5e5 86.11111%, #e5e5e5 88.88889%, #dddddd 88.88889%, #dddddd); } }
+#wrap { width: 94%; max-width: 82em; margin: 2em auto; padding: 2em 0; border-top: 2px solid #eee; border-bottom: 2px solid #eee; }
 #wrap:after { content: ""; display: table; clear: both; }
+@media (min-width: 750px) { #wrap { border-top: 4px solid #006daf; border-bottom: 4px solid #006daf; padding: 2em 1em; background-color: white; -moz-box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25); -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25); } }
+@media (min-width: 1000px) { #wrap { padding: 2em 2em; } }
 
-@media (max-width: 519px) { header { text-align: center; } }
+@media (max-width: 619px) { header { text-align: center; } }
 @media (min-width: 850px) { header { line-height: 3em; } }
 @media (min-width: 850px) and (max-width: 999px) { header dl, header h1 { margin-top: 48px; } }
 header h1 { font-family: 'Tungsten Narrow A', 'Tungsten Narrow B'; font-weight: 500; font-size: 3em; }
-@media (min-width: 520px) and (max-width: 849px) { header h1 { font-size: 2.5em; margin-top: 0.5em; -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2, "gutter": 0.125, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 64%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 850px) { header h1 { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; } }
-@media (min-width: 1000px) { header h1 { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 13.88889%; clear: none; clear: left; } }
-header dd.website { font-size: 1.25em; }
-@media (min-width: 520px) and (max-width: 849px) { header dd.website { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2, "gutter": 0.125, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 64%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 850px) { header dd.website { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 1000px) { header dd.website { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 38.88889%; clear: none; } }
-@media (min-width: 520px) and (max-width: 849px) { header dd.social { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2, "gutter": 0.125, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 64%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 850px) { header dd.social { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: right; } }
-@media (min-width: 1000px) { header dd.social { -sgs-span-settings: ("span": 2, "location": 4, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.11111%; float: right; margin-left: 0; margin-right: 0; clear: none; text-align: right; } }
+@media (max-width: 619px) { header h1 { clear: both; line-height: 1; } }
+@media (min-width: 620px) and (max-width: 849px) { header h1 { line-height: 1; font-size: 2.5em; margin-top: 0.5em; width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 850px) { header h1 { width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; padding-left: 116px; } }
+@media (min-width: 1000px) { header h1 { width: 20%; float: left; margin-right: -100%; margin-left: 12.5%; clear: none; padding-left: 0; } }
+header dd.website { font-size: 2em; font-weight: 300; font-family: 'Tungsten Narrow A', 'Tungsten Narrow B'; letter-spacing: 1px; }
+@media (max-width: 619px) { header dd.website { line-height: 1; } }
+@media (min-width: 620px) and (max-width: 849px) { header dd.website { width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: right; line-height: 1; } }
+@media (min-width: 850px) { header dd.website { width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 1000px) { header dd.website { position: relative; z-index: 5; width: 30%; float: left; margin-right: -100%; margin-left: 57.5%; clear: none; width: auto; } }
+@media (max-width: 619px) { header dd.social { margin-top: 1em; } }
+@media (min-width: 620px) and (max-width: 849px) { header dd.social { width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: right; } }
+@media (min-width: 850px) { header dd.social { width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: right; } }
+@media (min-width: 1000px) { header dd.social { width: 42.5%; float: right; margin-left: 0; margin-right: 0; clear: none; text-align: right; } }
 header dd.social li { display: inline-block; }
-header dd.social a { display: block; width: 36px; height: 48px; text-indent: 100%; overflow: hidden; background-size: contain; background-position: center center; background-repeat: no-repeat; }
-@media (min-width: 1240px) { header dd.social a { margin-left: 16px; } }
-header dd.social a[href*="facebook"] { background-image: url('/gfx/facebook.svg?1415817920'); }
-header dd.social a[href*="twitter"] { background-image: url('/gfx/twitter.svg?1415817956'); }
-header dd.social a[href*="linkedin"] { background-image: url('/gfx/linkedin.svg?1415817931'); }
-header dd.social a[href*="github"] { background-image: url('/gfx/github.svg?1415817924'); }
-header dd.social a[href*="500px"] { background-image: url('/gfx/500px.svg?1415817909'); }
-header dd.social a[href*="behance"] { background-image: url('/gfx/behance.svg?1415817913'); }
-header dd.social a[href*="drupal"] { background-image: url('/gfx/drupal.svg?1415817920'); }
+header dd.social a { display: block; width: 30px; height: 48px; text-indent: 100%; overflow: hidden; background-size: contain; background-position: center center; background-repeat: no-repeat; }
+@media (max-width: 619px) { header dd.social a { width: 40px; } }
+@media (min-width: 1240px) { header dd.social a { margin-left: 8px; width: 38px; } }
 
-#logo { position: relative; text-indent: 100%; overflow: hidden; }
-@media (max-width: 519px) { #logo { max-width: 180px; margin: 1em auto; } }
-@media (min-width: 520px) and (max-width: 849px) { #logo { -sgs-span-settings: ("span": 1, "location": 1, "grid": 1 2, "gutter": 0.125, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 32%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
-@media (min-width: 850px) { #logo { -sgs-span-settings: ("span": 1, "location": 1, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 18.18182%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: both; } }
-@media (min-width: 1000px) { #logo { -sgs-span-settings: ("span": 1, "location": 1, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 11.11111%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
+#logo { position: relative; text-indent: 100%; overflow: hidden; width: 44.44444%; float: left; margin-right: -100%; margin-left: 0; clear: none; }
 #logo span { display: block; width: 100%; height: 0; padding-top: 75%; background: transparent url("/gfx/logo.svg") center center no-repeat; background-size: contain; }
+@media (max-width: 619px) { #logo span { padding-top: 125px; max-width: 175px; margin: 0 auto; } }
+@media (min-width: 620px) and (max-width: 849px) { #logo { width: 23.52941%; float: left; margin-right: -100%; margin-left: 0; clear: none; }
+  #logo span { padding-top: 100%; } }
+@media (min-width: 850px) { #logo { width: 18.18182%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: both; } }
+@media (min-width: 1000px) { #logo { width: 10%; float: left; margin-right: -100%; margin-left: 0; clear: none; margin-bottom: -1em; } }
 
-h2 { margin-top: 1em; text-align: center; clear: both; font-family: 'Tungsten Narrow A', 'Tungsten Narrow B'; font-weight: 500; font-size: 3em; text-transform: uppercase; letter-spacing: 1px; color: #00436f; }
-@media (min-width: 850px) { h2 { margin-top: 0; font-size: 2em; text-align: right; -sgs-span-settings: ("span": 1, "location": 1, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 18.18182%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
-@media (min-width: 1000px) { h2 { -sgs-span-settings: ("span": 1, "location": 1, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 11.11111%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
+#avatar { width: 44.44444%; float: right; margin-left: 0; margin-right: 0; clear: none; }
+#avatar span { padding-top: 100%; width: 100%; max-width: 175px; display: block; background: url("/gfx/avatar.png") center center no-repeat; background-size: contain; }
+@media (max-width: 619px) { #avatar span { padding-top: 125px; width: 90%; max-width: 125px; margin: 0 auto; } }
+@media (min-width: 620px) and (max-width: 849px) { #avatar { width: 23.52941%; float: left; margin-right: -100%; margin-left: 26.47059%; clear: none; }
+  #avatar span { width: 80%; margin: 0 auto; } }
+@media (min-width: 850px) { #avatar { width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; max-width: 100px; margin-top: 1.5em; } }
+@media (min-width: 1000px) { #avatar { width: 20%; float: left; margin-right: -100%; margin-left: 35%; clear: none; max-width: 125px; clear: left; margin-top: -2.5em; } }
+
+h2 { text-align: center; clear: both; font-family: 'Tungsten Narrow A', 'Tungsten Narrow B'; font-weight: 500; font-size: 3em; text-transform: uppercase; letter-spacing: 1px; color: #00436f; }
+@media (min-width: 850px) { h2 { margin-top: 0; font-size: 2em; text-align: right; width: 18.18182%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
+@media (min-width: 1000px) { h2 { width: 10%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
 
 article { clear: both; margin-bottom: 1em; }
 
 h3 { margin: 0; }
 
 .work h3, .work .date, .education h3, .education .date { font-size: 1.25em; }
-@media (min-width: 500px) and (max-width: 849px) { .work .date, .education .date { -sgs-span-settings: ("span": 1, "location": 2, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 850px) and (max-width: 999px) { .work .date, .education .date { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 1000px) { .work .date, .education .date { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 13.88889%; clear: none; } }
+@media (max-width: 499px) { .work h3, .work .date, .education h3, .education .date { text-align: center; } }
+@media (max-width: 849px) { .work article, .education article { border-top: 1px solid #eee; padding-top: 1em; }
+  .work article:first-of-type, .education article:first-of-type { border-top: 0; padding-top: 0; } }
+@media (min-width: 500px) and (max-width: 849px) { .work .date, .education .date { width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 850px) and (max-width: 999px) { .work .date, .education .date { width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 1000px) { .work .date, .education .date { width: 20%; float: left; margin-right: -100%; margin-left: 12.5%; clear: none; } }
 .work .position, .education .position { font-weight: 600; }
-@media (min-width: 500px) and (max-width: 849px) { .work .position, .education .position { text-align: right; -sgs-span-settings: ("span": 1, "location": 1, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
-@media (min-width: 850px) and (max-width: 999px) { .work .position, .education .position { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; } }
-@media (min-width: 1000px) { .work .position, .education .position { -sgs-span-settings: ("span": 1, "location": 4, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 63.88889%; clear: none; } }
-@media (min-width: 500px) and (max-width: 849px) { .work .organization, .education .organization { text-align: right; -sgs-span-settings: ("span": 1, "location": 1, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: left; } }
-@media (min-width: 850px) and (max-width: 999px) { .work .organization, .education .organization { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: left; } }
-@media (min-width: 1000px) { .work .organization, .education .organization { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 38.88889%; clear: none; } }
-@media (min-width: 500px) and (max-width: 849px) { .work .location, .education .location { -sgs-span-settings: ("span": 1, "location": 2, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 850px) and (max-width: 999px) { .work .location, .education .location { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 1000px) { .work .location, .education .location { -sgs-span-settings: ("span": 1, "location": 5, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 11.11111%; float: right; margin-left: 0; margin-right: 0; clear: none; text-align: right; } }
-@media (min-width: 850px) { .work p, .work ul, .education p, .education ul { -sgs-span-settings: ("span": 2, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 77.27273%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: both; } }
-@media (min-width: 1000px) { .work p, .work ul, .education p, .education ul { -sgs-span-settings: ("span": 3, "location": 3, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 61.11111%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: both; } }
+@media (min-width: 500px) and (max-width: 849px) { .work .position, .education .position { text-align: right; width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
+@media (min-width: 850px) and (max-width: 999px) { .work .position, .education .position { width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; } }
+@media (min-width: 1000px) { .work .position, .education .position { width: 30%; float: left; margin-right: -100%; margin-left: 57.5%; clear: none; } }
+@media (max-width: 499px) { .work .organization, .education .organization { display: inline; } }
+@media (min-width: 500px) and (max-width: 849px) { .work .organization, .education .organization { text-align: right; width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; font-weight: 600; clear: left; } }
+@media (min-width: 850px) and (max-width: 999px) { .work .organization, .education .organization { width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; font-weight: 600; clear: left; } }
+@media (min-width: 1000px) { .work .organization, .education .organization { width: 20%; float: left; margin-right: -100%; margin-left: 35%; clear: none; } }
+@media (max-width: 499px) { .work .location, .education .location { display: inline; } }
+@media (min-width: 500px) and (max-width: 849px) { .work .location, .education .location { width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 850px) and (max-width: 999px) { .work .location, .education .location { width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 1000px) { .work .location, .education .location { width: 10%; float: right; margin-left: 0; margin-right: 0; clear: none; text-align: right; } }
+@media (min-width: 850px) { .work p, .work ul, .education p, .education ul { width: 77.27273%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: both; } }
+@media (min-width: 1000px) { .work p, .work ul, .education p, .education ul { width: 65%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: both; } }
 
 .community h3, .community .date, .biblio h3, .biblio .date { font-size: 1.125em; }
-@media (max-width: 849px) { .community .date, .biblio .date { text-align: center; font-style: italic; font-size: 0.925em; } }
-@media (min-width: 850px) { .community .date, .biblio .date { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: both; } }
-@media (min-width: 1000px) { .community .date, .biblio .date { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 13.88889%; clear: none; } }
-@media (min-width: 850px) { .community h3, .biblio h3 { -sgs-span-settings: ("span": 2, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 77.27273%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: both; } }
-@media (min-width: 1000px) { .community h3, .biblio h3 { margin-bottom: 1em; -sgs-span-settings: ("span": 3, "location": 3, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 61.11111%; float: right; margin-left: 0; margin-right: 0; clear: none; }
-  .community h3 strong, .biblio h3 strong { display: block; } }
+@media (min-width: 600px) and (max-width: 849px) { .community article, .biblio article { text-align: center; padding-top: 1em; border-top: 1px solid #eee; }
+  .community article:nth-of-type(100n+1), .community article:nth-of-type(100n+2), .biblio article:nth-of-type(100n+1), .biblio article:nth-of-type(100n+2) { border-top: 0; padding-top: 0; }
+  .community article:nth-of-type(2n+1), .biblio article:nth-of-type(2n+1) { width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: left; }
+  .community article:nth-of-type(2n+2), .biblio article:nth-of-type(2n+2) { width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: right; }
+  .community article .date, .biblio article .date { font-style: italic; font-size: 0.925em; }
+  .community article strong, .biblio article strong { display: block; } }
+@media (max-width: 599px) { .community .date, .biblio .date { text-align: center; font-style: italic; font-size: 0.925em; } }
+@media (min-width: 850px) { .community .date, .biblio .date { width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: both; } }
+@media (min-width: 1000px) { .community .date, .biblio .date { width: 20%; float: left; margin-right: -100%; margin-left: 12.5%; clear: none; } }
+@media (min-width: 850px) { .community h3, .biblio h3 { width: 77.27273%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: both; } }
+@media (min-width: 1000px) { .community h3, .biblio h3 { margin-bottom: 1em; width: 65%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+
+@media (min-width: 850px) { .community strong:after { content: " "; display: block; } }
+
+@media (min-width: 850px) { .biblio em:after { content: " "; display: block; } }
 
 .creations h3, .creations p { font-size: 1.25em; margin-top: 0; }
 .creations h3 { font-weight: bold; }
 @media (max-width: 499px) { .creations h3 { text-align: center; } }
-@media (min-width: 500px) and (max-width: 849px) { .creations article:nth-child(2n) { -sgs-span-settings: ("span": 1, "location": 1, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: left; }
-  .creations article:nth-child(2n+1) { -sgs-span-settings: ("span": 1, "location": 2, "grid": 2, "gutter": 0.125, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 850px) and (max-width: 999px) { .creations article:nth-child(2n) { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: left; }
-  .creations article:nth-child(2n+1) { -sgs-span-settings: ("span": 1, "location": 3, "grid": 1 2 2, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
-@media (min-width: 1000px) { .creations h3 { -sgs-span-settings: ("span": 1, "location": 2, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 22.22222%; float: left; margin-right: -100%; margin-left: 13.88889%; clear: none; }
-  .creations p { -sgs-span-settings: ("span": 3, "location": 3, "grid": 1 2 2 2 1, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": false, "gutter property": "margin", "options": ((null: null))); width: 61.11111%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
+@media (min-width: 500px) and (max-width: 849px) { .creations article { padding-top: 1em; border-top: 1px solid #eee; }
+  .creations article:nth-of-type(100n+1), .creations article:nth-of-type(100n+2) { border-top: 0; padding-top: 0; }
+  .creations article:nth-of-type(2n+1) { width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: left; }
+  .creations article:nth-of-type(2n+2) { width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: right; } }
+@media (min-width: 850px) and (max-width: 999px) { .creations article { padding-top: 1em; border-top: 1px solid #eee; }
+  .creations article:nth-of-type(100n+1), .creations article:nth-of-type(100n+2) { border-top: 0; padding-top: 0; }
+  .creations article:nth-of-type(2n+1) { width: 36.36364%; float: left; margin-right: -100%; margin-left: 22.72727%; clear: none; clear: left; }
+  .creations article:nth-of-type(2n+2) { width: 36.36364%; float: right; margin-left: 0; margin-right: 0; clear: none; clear: right; } }
+@media (min-width: 1000px) { .creations h3 { width: 20%; float: left; margin-right: -100%; margin-left: 12.5%; clear: none; }
+  .creations p { width: 65%; float: right; margin-left: 0; margin-right: 0; clear: none; } }
