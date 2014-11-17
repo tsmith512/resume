@@ -1,0 +1,295 @@
+@import 'reset';
+@import 'toolkit';
+@import 'toolkit/kickstart';
+@import 'breakpoint';
+@import 'singularitygs';
+@import 'compass/css3';
+
+// Different pieces:
+@import 'helpers';
+@import 'variables';
+@import 'type';
+@import 'wrappers';
+@import 'header';
+
+// Rest of the resume copy and framework:
+
+// Word experience, etc titles
+h2 {
+  text-align: center;
+  clear: both;
+
+  font-family: 'Tungsten Narrow A', 'Tungsten Narrow B';
+  font-weight: 500;
+  font-size: 3em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  color: $blue;
+  @include breakpoint($headers-left) {
+    margin-top: 0;
+    font-size: 2em;
+    text-align: right;
+    @include grid-span(1,1);
+  }
+
+  @include breakpoint($details-horizontal) {
+    @include grid-span(1,1);
+  }
+}
+
+// Individual jobs/positions/etc...
+article {
+  @extend .clearfix;
+  clear: both;
+  margin-bottom: 1em;
+}
+
+h3 {
+  @extend .clearfix;
+  margin: 0;
+}
+
+.work, .education {
+  h3, .date {
+    font-size: 1.25em;
+
+    @include breakpoint($work-single) {
+      text-align: center;
+    }
+  }
+
+  article {
+    @include breakpoint($work-dividers) {
+      border-top: 1px solid #eee;
+      padding-top: 1em;
+
+      &:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
+
+  .date {
+    @include breakpoint($details-split) {
+      @include grid-span(1,2);
+    }
+    @include breakpoint($details-table) {
+      @include grid-span(1,3);
+    }
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,2);
+    }
+  }
+
+  .position {
+    @include breakpoint($details-split) {
+      text-align: right;
+      @include grid-span(1,1);
+    }
+    @include breakpoint($details-table) {
+      @include grid-span(1,2);
+    }
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,4);
+    }
+    font-weight: 600;
+  }
+
+  .organization {
+    @include breakpoint($work-single) {
+      display: inline;
+    }
+    @include breakpoint($details-split) {
+      text-align: right;
+      @include grid-span(1,1);
+      font-weight: 600;
+      clear: left;
+    }
+    @include breakpoint($details-table) {
+      @include grid-span(1,2);
+      font-weight: 600;
+      clear: left;
+    }
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,3);
+    }
+  }
+
+  .location {
+    @include breakpoint($work-single) {
+      display: inline;
+    }
+    @include breakpoint($details-split) {
+      @include grid-span(1,2);
+    }
+    @include breakpoint($details-table) {
+      @include grid-span(1,3);
+    }
+    @include breakpoint($details-horizontal) {
+      @include grid-span(1,5);
+      text-align: right;
+    }
+  }
+
+  p, ul {
+
+    @include breakpoint($headers-left) {
+      @include grid-span(2, 2);
+      clear: both;
+    }
+
+    @include breakpoint($details-horizontal) {
+      @include grid-span(3, 3);
+      clear: both;
+    }
+  }
+}
+
+.community, .biblio {
+  h3, .date {
+    font-size: 1.125em;
+  }
+
+  @include breakpoint($extras-boxes) {
+    article {
+      text-align: center;
+
+      padding-top: 1em;
+      border-top: 1px solid #eee;
+      &:nth-of-type(100n+1), &:nth-of-type(100n+2) {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      &:nth-of-type(2n+1) {
+        @include grid-span(1, 1);
+        clear: left;
+      }
+      &:nth-of-type(2n+2) {
+        @include grid-span(1, 2);
+        clear: right;
+      }
+
+      .date {
+        font-style: italic;
+        font-size: 0.925em;
+      }
+
+      strong {
+        display: block;
+      }
+    }
+  }
+
+  .date {
+    @include breakpoint($extras-single) {
+      text-align: center;
+      font-style: italic;
+      font-size: 0.925em;
+    }
+    @include breakpoint($headers-left) {
+      @include grid-span(1, 2);
+      clear: both;
+    }
+    @include breakpoint($extras-dates-split) {
+      @include grid-span(1, 2);
+    }
+  }
+
+  h3 {
+    @include breakpoint($headers-left) {
+      @include grid-span(2, 2);
+      clear: both;
+    }
+    @include breakpoint($extras-dates-split) {
+      margin-bottom: 1em;
+      @include grid-span(3, 3);
+    }
+  }
+}
+
+.community {
+  @include breakpoint($extras-multiline) {
+    strong:after {
+      content: " ";
+      display: block;
+    }
+  }
+}
+
+.biblio {
+  @include breakpoint($extras-multiline) {
+    em:after {
+      content: " ";
+      display: block;
+    }
+  }
+}
+
+.creations {
+  h3, p {
+    font-size: 1.25em;
+    margin-top: 0;
+  }
+
+  h3 {
+    font-weight: bold;
+  }
+
+  @include breakpoint($creations-single) {
+    h3 {
+      text-align: center;
+    }
+  }
+
+  @include breakpoint($creations-double) {
+    article {
+      padding-top: 1em;
+      border-top: 1px solid #eee;
+      &:nth-of-type(100n+1), &:nth-of-type(100n+2) {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      &:nth-of-type(2n+1) {
+        @include grid-span(1, 1);
+        clear: left;
+      }
+      &:nth-of-type(2n+2) {
+        @include grid-span(1, 2);
+        clear: right;
+      }
+    }
+  }
+
+  @include breakpoint($creations-boxes) {
+    article {
+      padding-top: 1em;
+      border-top: 1px solid #eee;
+      &:nth-of-type(100n+1), &:nth-of-type(100n+2) {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      &:nth-of-type(2n+1) {
+        @include grid-span(1, 2);
+        clear: left;
+      }
+      &:nth-of-type(2n+2) {
+        @include grid-span(1, 3);
+        clear: right;
+      }
+    }
+  }
+
+  @include breakpoint($creations-rows) {
+    h3 {
+      @include grid-span(1,2);
+    }
+    p {
+      @include grid-span(3,3);
+    }
+  }
+}
