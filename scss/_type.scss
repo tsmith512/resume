@@ -1,0 +1,42 @@
+body {
+  color: $grey;
+  font-family: 'Whitney SSm A', 'Whitney SSm B';
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.625;
+
+  @include breakpoint($wrap-box) {
+    background-color: #eee;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $bluelt;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+#{headers()} {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+}
+
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+p {
+  margin-bottom: 1em;
+}

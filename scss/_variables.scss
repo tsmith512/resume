@@ -1,0 +1,38 @@
+// Colors:
+$blue: #00436F;
+$bluelt: #006DAF;
+$grey: desaturate(darken(#9C938E, 15%), 3%);
+$greydk: desaturate(lighten(#252120, 10%), 3%);
+$greylt: desaturate(darken(#E5E4DE, 5%), 3%);
+$red: #a92f41;
+$redlt: #c0392b;
+$mint: #91c7a9;
+
+$wrap-box: 750px;
+$header-mini: max-width 619px;
+$header-split: 620px 849px;
+$header-top-margin: 850px 999px;
+$header-expanded: 1000px;
+$headers-left: 850px;
+$social-large: 1240px;
+$work-single: max-width 499px;
+$work-dividers: max-width 849px;
+$details-split: 500px 849px;
+$details-table: 850px 999px;
+$details-horizontal: 1000px;
+$extras-single: max-width 599px;
+$extras-boxes: 600px 849px;
+$extras-multiline: 850px;
+$extras-dates-split: 1000px;
+$creations-single: max-width 499px;
+$creations-double: 500px 849px;
+$creations-boxes: 850px 999px;
+$creations-rows: 1000px;
+
+
+@include add-grid(2);
+$header-split-grid: 1 1 2; // A grid override we'll use in headers
+@include add-grid(1 2 2 at 850px);
+@include add-grid(1 2 2 3 1 at 1000px);
+@include add-gutter(1/8 at 500px);
+@include add-gutter(1/4 at 850px);
