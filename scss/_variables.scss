@@ -34,5 +34,5 @@ $creations-rows: 1000px;
 $header-split-grid: 1 1 2; // A grid override we'll use in headers
 @include add-grid(1 2 2 at 850px);
 @include add-grid(1 2 2 3 1 at 1000px);
-@include add-gutter(1/8 at 500px);
+@include add-gutter(1/8);
 @include add-gutter(1/4 at 850px);
