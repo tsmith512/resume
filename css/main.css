@@ -84,7 +84,7 @@ header dd.social a { display: block; width: 30px; height: 48px; text-indent: 100
 @media (max-width: 619px) { header dd.social a { width: 40px; } }
 @media (min-width: 1240px) { header dd.social a { margin-left: 8px; width: 38px; } }
 
-#logo { position: relative; text-indent: 100%; overflow: hidden; width: 44.44444%; float: left; margin-right: -100%; margin-left: 0; clear: none; }
+#logo { position: relative; text-indent: 100%; overflow: hidden; width: 47.05882%; float: left; margin-right: -100%; margin-left: 0; clear: none; }
 #logo span { display: block; width: 100%; height: 0; padding-top: 75%; background: transparent url("/gfx/logo.svg") center center no-repeat; background-size: contain; }
 @media (max-width: 619px) { #logo span { padding-top: 125px; max-width: 175px; margin: 0 auto; } }
 @media (min-width: 620px) and (max-width: 849px) { #logo { width: 23.52941%; float: left; margin-right: -100%; margin-left: 0; clear: none; }
@@ -92,7 +92,7 @@ header dd.social a { display: block; width: 30px; height: 48px; text-indent: 100
 @media (min-width: 850px) { #logo { width: 18.18182%; float: left; margin-right: -100%; margin-left: 0; clear: none; clear: both; } }
 @media (min-width: 1000px) { #logo { width: 10%; float: left; margin-right: -100%; margin-left: 0; clear: none; margin-bottom: -1em; } }
 
-#avatar { width: 44.44444%; float: right; margin-left: 0; margin-right: 0; clear: none; }
+#avatar { width: 47.05882%; float: right; margin-left: 0; margin-right: 0; clear: none; }
 #avatar span { padding-top: 100%; width: 100%; max-width: 175px; display: block; background: url("/gfx/avatar.png") center center no-repeat; background-size: contain; }
 @media (max-width: 619px) { #avatar span { padding-top: 125px; width: 90%; max-width: 125px; margin: 0 auto; } }
 @media (min-width: 620px) and (max-width: 849px) { #avatar { width: 23.52941%; float: left; margin-right: -100%; margin-left: 26.47059%; clear: none; }
@@ -101,7 +101,7 @@ header dd.social a { display: block; width: 30px; height: 48px; text-indent: 100
 @media (min-width: 1000px) { #avatar { width: 20%; float: left; margin-right: -100%; margin-left: 35%; clear: none; max-width: 125px; clear: left; margin-top: -2.5em; } }
 
 h2 { text-align: center; clear: both; font-family: 'Tungsten Narrow A', 'Tungsten Narrow B'; font-weight: 500; font-size: 3em; text-transform: uppercase; letter-spacing: 1px; color: #00436f; }
-@media (min-width: 850px) { h2 { margin-top: 0; font-size: 2em; text-align: right; width: 18.18182%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
+@media (min-width: 850px) { h2 { width: 18.18182%; float: left; margin-right: -100%; margin-left: 0; clear: none; margin-top: 0; text-align: right; font-size: 2em; } }
 @media (min-width: 1000px) { h2 { width: 10%; float: left; margin-right: -100%; margin-left: 0; clear: none; } }
 
 article { clear: both; margin-bottom: 1em; }
