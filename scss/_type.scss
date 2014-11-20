@@ -40,3 +40,12 @@ em {
 p {
   margin-bottom: 1em;
 }
+
+footer {
+  text-align: center;
+  color: #999;
+  a { color: #666; }
+  font-size: 0.625em;
+  font-style: italic;
+  margin: 0 auto (2em/0.625) auto;
+}
