@@ -166,7 +166,8 @@ module.exports = function (grunt) {
     },
 
     clean: {
-      dist: ["temp-icons", "img", "css", "dist", "index.html", ".sass-cache"]
+      preBuild: ["temp-icons", "img", "css", "dist", "index.html", ".sass-cache"],
+      postBuild: ["dist/critical.css", "dist/secondary.css", "dist/head.js", ".sass-cache"]
     },
   });
 
@@ -206,7 +207,7 @@ module.exports = function (grunt) {
   // grunt build: Does a full rebuild of our icons, minifies images, compiles
   //   the Sass, and lints our js
   grunt.registerTask('build', [
-    'clean:dist',
+    'clean:preBuild',
     'svgmin',
     'imagemin',
     'icons',
@@ -217,7 +218,8 @@ module.exports = function (grunt) {
     'concat:js',
     'uglify',
     'htmlmin:dist',
-    'inline'
+    'inline',
+    'clean:postBuild',
   ]);
 
   // grunt / grunt default: Cleans our Sass cache files, builds our icons, and
