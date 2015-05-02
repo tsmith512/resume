@@ -82,7 +82,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'gfx',
-          src: '**/*.svg',
+          src: ['**/*.svg',  '!**/icons/**'],
           dest: 'img'
         }]
       }
@@ -148,6 +148,7 @@ module.exports = function (grunt) {
   //   the Sass, and lints our js
   grunt.registerTask('build', [
     'clean:dist',
+    'svgmin',
     'icons',
     'compass:dist',
     'concat:css',
