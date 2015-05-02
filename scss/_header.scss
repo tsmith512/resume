@@ -16,7 +16,8 @@ header {
   }
 
   h1 {
-    font-family: 'Tungsten Narrow A', 'Tungsten Narrow B';
+    font-family: 'Tungsten Narrow A', 'Tungsten Narrow B', 'Arial Narrow', Tahoma, Helvetica, Arial, sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-size: 3em;
 
@@ -47,7 +48,8 @@ header {
   dd.website {
     font-size: 2em;
     font-weight: 300;
-    font-family: 'Tungsten Narrow A', 'Tungsten Narrow B';
+    font-family: 'Tungsten Narrow A', 'Tungsten Narrow B', 'Arial Narrow', Tahoma, Helvetica, Arial, sans-serif;
+    font-stretch: condensed;
     letter-spacing: 1px;
 
     @include breakpoint($header-mini) {
