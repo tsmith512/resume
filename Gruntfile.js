@@ -94,6 +94,10 @@ module.exports = function (grunt) {
         src: ['css/main.css', 'img/icons/icons.data.svg.css'],
         dest: 'dist/css.css',
       },
+      js: {
+        src: ['js/vendor/loadCSS/loadCSS.js'],
+        dest: 'dist/js.js',
+      },
     },
 
     cssmin: {
@@ -121,6 +125,17 @@ module.exports = function (grunt) {
           src: ['**/*.{png,jpg,gif}', '!**/icons/**'],
           dest: 'img/'
         }]
+      }
+    },
+
+    uglify: {
+      options: {
+        mangle: false
+      },
+      js: {
+        files: {
+          'dist/min.js': ['dist/js.js']
+        }
       }
     },
 
@@ -184,6 +199,8 @@ module.exports = function (grunt) {
     'compass:dist',
     'concat:css',
     'cssmin',
+    'concat:js',
+    'uglify',
     'htmlmin:dist',
   ]);
 
