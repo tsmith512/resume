@@ -251,7 +251,13 @@ module.exports = function (grunt) {
     'clean:postBuild',
   ]);
 
+
+  grunt.task.registerTask('perfreport', 'Update performance testing records.', function() {
+    require('logfile-grunt')(grunt, { filePath: 'performance-report.txt', clearLogFile: true });
+  });
+
   grunt.registerTask('test', [
+    'perfreport',
     'pagespeed',
   ]);
 
