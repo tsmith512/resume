@@ -2,6 +2,7 @@
 
 module.exports = function (grunt) {
   var mozjpeg = require('imagemin-mozjpeg');
+  var devURL = 'http://www.dev.resume.tsmith512.com';
 
   grunt.initConfig({
     watch: {
@@ -174,6 +175,27 @@ module.exports = function (grunt) {
       preBuild: ["temp-icons", "img", "css", "dist", "index.html", ".sass-cache"],
       postBuild: ["dist/critical.css", "dist/secondary.css", "dist/head.js", "dist/foot.js", ".sass-cache"]
     },
+
+    pagespeed: {
+      devDesktop: {
+        options: {
+          url: devURL,
+          nokey: true,
+          locale: "en_US",
+          strategy: "desktop",
+          threshold: 80,
+        }
+      },
+      devMobile: {
+        options: {
+          url: devURL,
+          nokey: true,
+          locale: "en_US",
+          strategy: "mobile",
+          threshold: 80,
+        },
+      },
+    },
   });
 
 
@@ -198,6 +220,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-inline');
+  grunt.loadNpmTasks('grunt-pagespeed');
 
   // grunt icons: This will ensure all of our icons are created properly.
   grunt.registerTask('icons', [
@@ -226,6 +249,10 @@ module.exports = function (grunt) {
     'htmlmin:dist',
     'inline',
     'clean:postBuild',
+  ]);
+
+  grunt.registerTask('test', [
+    'pagespeed',
   ]);
 
   // grunt / grunt default: Cleans our Sass cache files, builds our icons, and

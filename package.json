@@ -16,6 +16,7 @@
     "grunt-contrib-watch": "~0.4.3",
     "grunt-grunticon": "^1.6.0",
     "grunt-inline": "^0.3.4",
+    "grunt-pagespeed": "^1.0.0",
     "grunt-parallel": "~0.1.0",
     "grunt-string-replace": "~0.2.7",
     "grunt-svgmin": "~0.1.0",
