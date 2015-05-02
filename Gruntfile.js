@@ -98,9 +98,13 @@ module.exports = function (grunt) {
         src: ['img/icons/icons.data.svg.css'],
         dest: 'dist/secondary.css',
       },
-      js: {
+      jsHead: {
         src: ['js/vendor/loadCSS/loadCSS.js'],
         dest: 'dist/head.js',
+      },
+      jsFoot: {
+        src: ['js/googleanalytics.js'],
+        dest: 'dist/foot.js',
       },
     },
 
@@ -139,7 +143,8 @@ module.exports = function (grunt) {
       },
       js: {
         files: {
-          'dist/head.min.js': ['dist/head.js']
+          'dist/head.min.js': ['dist/head.js'],
+          'dist/foot.min.js': ['dist/foot.js'],
         }
       }
     },
@@ -167,7 +172,7 @@ module.exports = function (grunt) {
 
     clean: {
       preBuild: ["temp-icons", "img", "css", "dist", "index.html", ".sass-cache"],
-      postBuild: ["dist/critical.css", "dist/secondary.css", "dist/head.js", ".sass-cache"]
+      postBuild: ["dist/critical.css", "dist/secondary.css", "dist/head.js", "dist/foot.js", ".sass-cache"]
     },
   });
 
@@ -215,7 +220,8 @@ module.exports = function (grunt) {
     'concat:cssCritical',
     'concat:cssSecondary',
     'cssmin',
-    'concat:js',
+    'concat:jsHead',
+    'concat:jsFoot',
     'uglify',
     'htmlmin:dist',
     'inline',
