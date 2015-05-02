@@ -183,7 +183,7 @@ module.exports = function (grunt) {
           nokey: true,
           locale: "en_US",
           strategy: "desktop",
-          threshold: 80,
+          threshold: 90,
         }
       },
       devMobile: {
@@ -192,9 +192,27 @@ module.exports = function (grunt) {
           nokey: true,
           locale: "en_US",
           strategy: "mobile",
-          threshold: 80,
+          threshold: 90,
         },
       },
+    },
+
+    yslow: {
+      options: {
+        thresholds: {
+          weight: 200,
+          speed: 1000,
+          score: 90,
+          requests: 20,
+        }
+      },
+      pages: {
+        files: [
+          {
+            src: devURL,
+          }
+        ]
+      }
     },
   });
 
@@ -221,6 +239,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-inline');
   grunt.loadNpmTasks('grunt-pagespeed');
+  grunt.loadNpmTasks('grunt-yslow');
 
   // grunt icons: This will ensure all of our icons are created properly.
   grunt.registerTask('icons', [
@@ -259,6 +278,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'perfreport',
     'pagespeed',
+    'yslow',
   ]);
 
   // grunt / grunt default: Cleans our Sass cache files, builds our icons, and

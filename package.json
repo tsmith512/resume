@@ -20,9 +20,11 @@
     "grunt-parallel": "~0.1.0",
     "grunt-string-replace": "~0.2.7",
     "grunt-svgmin": "~0.1.0",
+    "grunt-yslow": "0.0.4",
     "imagemin": "^3.1.0",
     "imagemin-mozjpeg": "^5.1.0",
-    "logfile-grunt": "^0.1.6"
+    "logfile-grunt": "^0.1.6",
+    "phantomjs": "^1.9.16"
   },
   "engines": {
     "node": ">=0.8.0"
