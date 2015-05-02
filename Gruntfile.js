@@ -96,7 +96,7 @@ module.exports = function (grunt) {
       },
       js: {
         src: ['js/vendor/loadCSS/loadCSS.js'],
-        dest: 'dist/js.js',
+        dest: 'dist/head.js',
       },
     },
 
@@ -134,7 +134,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: {
-          'dist/min.js': ['dist/js.js']
+          'dist/head.min.js': ['dist/head.js']
         }
       }
     },
@@ -152,8 +152,7 @@ module.exports = function (grunt) {
     },
 
     clean: {
-      icons: ["temp-icons"],
-      dist: ["img", "css", ".sass-cache"]
+      dist: ["temp-icons", "img", "css", "dist", "index.html", ".sass-cache"]
     },
   });
 
