@@ -1,3 +1,4 @@
 # Don't generate diffs for aggregated/minified/compiled files (only stored in-repo for hosting)
 dist/* binary
 img/icons/* binary
+index.html binary

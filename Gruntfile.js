@@ -124,6 +124,18 @@ module.exports = function (grunt) {
       }
     },
 
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: false,
+          collapseWhitespace: true
+        },
+        files: {
+          'index.html': 'source.html',
+        }
+      },
+    },
+
     clean: {
       icons: ["temp-icons"],
       dist: ["img", "css", ".sass-cache"]
@@ -150,6 +162,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-string-replace');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   // grunt icons: This will ensure all of our icons are created properly.
   grunt.registerTask('icons', [
@@ -171,6 +184,7 @@ module.exports = function (grunt) {
     'compass:dist',
     'concat:css',
     'cssmin',
+    'htmlmin:dist',
   ]);
 
   // grunt / grunt default: Cleans our Sass cache files, builds our icons, and
