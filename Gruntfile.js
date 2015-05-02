@@ -241,23 +241,13 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-pagespeed');
   grunt.loadNpmTasks('grunt-yslow');
 
-  // grunt icons: This will ensure all of our icons are created properly.
-  grunt.registerTask('icons', [
-    'grunticon:development',
-  ]);
-
-  // grunt sass: Compiles all of the Sass in our directory.
-  grunt.registerTask('sass', [
-    'compass:dev',
-  ]);
-
   // grunt build: Does a full rebuild of our icons, minifies images, compiles
   //   the Sass, and lints our js
   grunt.registerTask('build', [
     'clean:preBuild',
     'svgmin',
     'imagemin',
-    'icons',
+    'grunticon:development',
     'compass:dist',
     'concat:cssCritical',
     'concat:cssSecondary',
@@ -270,7 +260,6 @@ module.exports = function (grunt) {
     'clean:postBuild',
   ]);
 
-
   grunt.task.registerTask('perfreport', 'Update performance testing records.', function() {
     require('logfile-grunt')(grunt, { filePath: 'performance-report.txt', clearLogFile: true });
   });
@@ -279,13 +268,5 @@ module.exports = function (grunt) {
     'perfreport',
     'pagespeed',
     'yslow',
-  ]);
-
-  // grunt / grunt default: Cleans our Sass cache files, builds our icons, and
-  //   compiles the Sass from scratch. Run this after you switch branches.
-  grunt.registerTask('default', [
-    'clean:dist',
-    'icons',
-    'compass:dev',
   ]);
 };
