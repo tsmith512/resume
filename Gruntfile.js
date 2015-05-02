@@ -212,7 +212,23 @@ module.exports = function (grunt) {
             src: devURL,
           }
         ]
-      }
+      },
+    },
+
+    wpt: {
+      options: {
+        locations: ['ec2-us-east-1:Chrome', 'ec2-us-west-1:Firefox'],
+        runs: 5,
+        timeout: 3600,
+      },
+      main: {
+        options: {
+          url: [
+            devURL
+          ]
+        },
+        dest: 'wpt/',
+      },
     },
   });
 
@@ -240,6 +256,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-inline');
   grunt.loadNpmTasks('grunt-pagespeed');
   grunt.loadNpmTasks('grunt-yslow');
+  grunt.loadNpmTasks('grunt-wpt');
 
   // grunt build: Does a full rebuild of our icons, minifies images, compiles
   //   the Sass, and lints our js
@@ -266,6 +283,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'perfreport',
+    'wpt',
     'pagespeed',
     'yslow',
   ]);
