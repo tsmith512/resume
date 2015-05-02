@@ -37,7 +37,6 @@ module.exports = function (grunt) {
           environment: 'production',
           imagesDir: 'img',
           force: true,
-          outputStyle: 'compressed',
         }
       }
     },
@@ -89,6 +88,13 @@ module.exports = function (grunt) {
       }
     },
 
+    concat: {
+      css: {
+        src: ['css/main.css', 'img/icons/icons.data.svg.css'],
+        dest: 'dist/css.css',
+      },
+    },
+
     clean: {
       icons: ["temp-icons"],
       dist: ["img", "css", ".sass-cache"]
@@ -113,6 +119,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-grunticon');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   // grunt icons: This will ensure all of our icons are created properly.
   grunt.registerTask('icons', [
@@ -130,6 +137,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'icons',
     'compass:dist',
+    'concat:css',
   ]);
 
   // grunt / grunt default: Cleans our Sass cache files, builds our icons, and
