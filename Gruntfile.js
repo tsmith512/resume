@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function (grunt) {
+  var mozjpeg = require('imagemin-mozjpeg');
 
   grunt.initConfig({
     watch: {
@@ -107,6 +108,22 @@ module.exports = function (grunt) {
       }
     },
 
+    imagemin: {
+      dynamic: {
+        options: {
+          optimizationLevel: 3,
+          svgoPlugins: [{ removeViewBox: false }],
+          use: [mozjpeg()]
+        },
+        files: [{
+          expand: true,
+          cwd: 'gfx/',
+          src: ['**/*.{png,jpg,gif}', '!**/icons/**'],
+          dest: 'img/'
+        }]
+      }
+    },
+
     clean: {
       icons: ["temp-icons"],
       dist: ["img", "css", ".sass-cache"]
@@ -149,6 +166,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'svgmin',
+    'imagemin',
     'icons',
     'compass:dist',
     'concat:css',
