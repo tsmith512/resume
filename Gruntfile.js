@@ -90,9 +90,13 @@ module.exports = function (grunt) {
     },
 
     concat: {
-      css: {
-        src: ['css/main.css', 'img/icons/icons.data.svg.css'],
-        dest: 'dist/css.css',
+      cssCritical: {
+        src: ['css/main.css'],
+        dest: 'dist/critical.css',
+      },
+      cssSecondary: {
+        src: ['img/icons/icons.data.svg.css'],
+        dest: 'dist/secondary.css',
       },
       js: {
         src: ['js/vendor/loadCSS/loadCSS.js'],
@@ -107,7 +111,8 @@ module.exports = function (grunt) {
       },
       target: {
         files: {
-          'dist/min.css': ['dist/css.css']
+          'dist/critical.min.css': ['dist/critical.css'],
+          'dist/secondary.min.css': ['dist/secondary.css'],
         }
       }
     },
@@ -206,7 +211,8 @@ module.exports = function (grunt) {
     'imagemin',
     'icons',
     'compass:dist',
-    'concat:css',
+    'concat:cssCritical',
+    'concat:cssSecondary',
     'cssmin',
     'concat:js',
     'uglify',
