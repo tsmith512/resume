@@ -1,0 +1,16 @@
+ExpiresActive on
+ExpiresDefault "access plus 1 month"
+
+# Cache for six months any traditionally static asset
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)(\.gz)?$">
+  ExpiresDefault "access plus 6 months"
+  Header unset ETag
+  FileETag None
+</FilesMatch>
+
+# Cache for one months content assets as they may change more frequently, and
+# use its size only for an ETag (which will make YSlow happier)
+<FilesMatch "\.(html|pdf)(\.gz)?$">
+  ExpiresDefault "access plus 1 month"
+  FileETag Size
+</FilesMatch>
