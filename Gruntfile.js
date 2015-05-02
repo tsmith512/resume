@@ -151,6 +151,15 @@ module.exports = function (grunt) {
       },
     },
 
+    inline: {
+      dist: {
+        options:{
+            tag: 'inline'
+        },
+        src: 'index.html',
+      }
+    },
+
     clean: {
       dist: ["temp-icons", "img", "css", "dist", "index.html", ".sass-cache"]
     },
@@ -177,6 +186,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-inline');
 
   // grunt icons: This will ensure all of our icons are created properly.
   grunt.registerTask('icons', [
@@ -201,6 +211,7 @@ module.exports = function (grunt) {
     'concat:js',
     'uglify',
     'htmlmin:dist',
+    'inline'
   ]);
 
   // grunt / grunt default: Cleans our Sass cache files, builds our icons, and
