@@ -1,0 +1,63 @@
+
+Running "wpt:main" (wpt) task
+Running webpagetest server[http://www.dev.resume.tsmith512.com] location[ec2-us-east-1:Chrome]
+Running webpagetest server[http://www.dev.resume.tsmith512.com] location[ec2-us-west-1:Firefox]
+
+Running "pagespeed:devDesktop" (pagespeed) task
+
+--------------------------------------------------------
+
+URL:       dev.resume.tsmith512.com
+Strategy:  desktop
+Score:     99
+
+CSS size                                   | 36.13 kB
+HTML size                                  | 34.91 kB
+Image size                                 | 30.98 kB
+JavaScript size                            | 25.66 kB
+CSS resources                              | 2
+Hosts                                      | 3
+JS resources                               | 1
+Resources                                  | 6
+Static resources                           | 3
+Total size                                 | 704 B
+
+Leverage browser caching                   | 0.5
+
+--------------------------------------------------------
+
+
+Running "pagespeed:devMobile" (pagespeed) task
+
+--------------------------------------------------------
+
+URL:       dev.resume.tsmith512.com
+Strategy:  mobile
+Score:     99
+
+CSS size                                   | 36.13 kB
+HTML size                                  | 34.91 kB
+Image size                                 | 30.98 kB
+JavaScript size                            | 25.66 kB
+CSS resources                              | 2
+Hosts                                      | 3
+JS resources                               | 1
+Resources                                  | 6
+Static resources                           | 3
+Total size                                 | 702 B
+
+Leverage browser caching                   | 0.75
+
+--------------------------------------------------------
+
+
+Running "yslow:pages" (yslow) task
+>> Testing 1 URLs, this might take a few moments...
+>> 
+>> -----------------------------------------------
+>> Test 1: http://www.dev.resume.tsmith512.com
+>> -----------------------------------------------
+>> Requests: 6 [PASS]
+>> YSlow score: 95/100 [PASS]
+>> Page load time: 538ms [PASS]
+>> Page weight: 156.1kb [PASS]

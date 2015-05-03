@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports = function (grunt) {
+  var mozjpeg = require('imagemin-mozjpeg');
+  var devURL = 'http://www.dev.resume.tsmith512.com';
 
   grunt.initConfig({
     watch: {
@@ -37,7 +39,6 @@ module.exports = function (grunt) {
           environment: 'production',
           imagesDir: 'img',
           force: true,
-          outputStyle: 'compressed',
         }
       }
     },
@@ -83,15 +84,151 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'gfx',
-          src: '**/*.svg',
+          src: ['**/*.svg',  '!**/icons/**'],
           dest: 'img'
         }]
       }
     },
 
+    concat: {
+      cssCritical: {
+        src: ['css/main.css'],
+        dest: 'dist/critical.css',
+      },
+      cssSecondary: {
+        src: ['img/icons/icons.data.svg.css'],
+        dest: 'dist/secondary.css',
+      },
+      jsHead: {
+        src: ['js/vendor/loadCSS/loadCSS.js'],
+        dest: 'dist/head.js',
+      },
+      jsFoot: {
+        src: ['js/googleanalytics.js'],
+        dest: 'dist/foot.js',
+      },
+    },
+
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'dist/critical.min.css': ['dist/critical.css'],
+          'dist/secondary.min.css': ['dist/secondary.css'],
+        }
+      }
+    },
+
+    imagemin: {
+      dynamic: {
+        options: {
+          optimizationLevel: 3,
+          svgoPlugins: [{ removeViewBox: false }],
+          use: [mozjpeg()]
+        },
+        files: [{
+          expand: true,
+          cwd: 'gfx/',
+          src: ['**/*.{png,jpg,gif}', '!**/icons/**'],
+          dest: 'img/'
+        }]
+      }
+    },
+
+    uglify: {
+      options: {
+        mangle: false
+      },
+      js: {
+        files: {
+          'dist/head.min.js': ['dist/head.js'],
+          'dist/foot.min.js': ['dist/foot.js'],
+        }
+      }
+    },
+
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: false,
+          collapseWhitespace: true
+        },
+        files: {
+          'index.html': 'source.html',
+        }
+      },
+    },
+
+    inline: {
+      dist: {
+        options:{
+            tag: 'inline'
+        },
+        src: 'index.html',
+      }
+    },
+
     clean: {
-      icons: ["temp-icons"],
-      dist: ["img", "css", ".sass-cache"]
+      preBuild: ["temp-icons", "img", "css", "dist", "index.html", ".sass-cache"],
+      postBuild: ["dist/critical.css", "dist/secondary.css", "dist/head.js", "dist/foot.js", ".sass-cache"]
+    },
+
+    pagespeed: {
+      devDesktop: {
+        options: {
+          url: devURL,
+          nokey: true,
+          locale: "en_US",
+          strategy: "desktop",
+          threshold: 90,
+        }
+      },
+      devMobile: {
+        options: {
+          url: devURL,
+          nokey: true,
+          locale: "en_US",
+          strategy: "mobile",
+          threshold: 90,
+        },
+      },
+    },
+
+    yslow: {
+      options: {
+        thresholds: {
+          weight: 200,
+          speed: 1000,
+          score: 90,
+          requests: 20,
+        }
+      },
+      pages: {
+        files: [
+          {
+            src: devURL,
+          }
+        ]
+      },
+    },
+
+    wpt: {
+      options: {
+        locations: ['ec2-us-east-1:Chrome', 'ec2-us-west-1:Firefox'],
+        runs: 5,
+        timeout: 3600,
+      },
+      main: {
+        options: {
+          url: [
+            devURL
+          ]
+        },
+        dest: 'wpt/',
+      },
     },
   });
 
@@ -113,31 +250,41 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-grunticon');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-string-replace');
-
-  // grunt icons: This will ensure all of our icons are created properly.
-  grunt.registerTask('icons', [
-    'grunticon:development',
-  ]);
-
-  // grunt sass: Compiles all of the Sass in our directory.
-  grunt.registerTask('sass', [
-    'compass:dev',
-  ]);
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-inline');
+  grunt.loadNpmTasks('grunt-pagespeed');
+  grunt.loadNpmTasks('grunt-yslow');
+  grunt.loadNpmTasks('grunt-wpt');
 
   // grunt build: Does a full rebuild of our icons, minifies images, compiles
   //   the Sass, and lints our js
   grunt.registerTask('build', [
-    'clean:dist',
-    'icons',
-    'parallel:assets',
+    'clean:preBuild',
+    'svgmin',
+    'imagemin',
+    'grunticon:development',
     'compass:dist',
+    'concat:cssCritical',
+    'concat:cssSecondary',
+    'cssmin',
+    'concat:jsHead',
+    'concat:jsFoot',
+    'uglify',
+    'htmlmin:dist',
+    'inline',
+    'clean:postBuild',
   ]);
 
-  // grunt / grunt default: Cleans our Sass cache files, builds our icons, and
-  //   compiles the Sass from scratch. Run this after you switch branches.
-  grunt.registerTask('default', [
-    'clean:dist',
-    'icons',
-    'compass:dev',
+  grunt.task.registerTask('perfreport', 'Update performance testing records.', function() {
+    require('logfile-grunt')(grunt, { filePath: 'performance-report.txt', clearLogFile: true });
+  });
+
+  grunt.registerTask('test', [
+    'perfreport',
+    'wpt',
+    'pagespeed',
+    'yslow',
   ]);
 };
