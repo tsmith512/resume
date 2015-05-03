@@ -271,7 +271,8 @@ module.exports = function (grunt) {
       dev_to_master: {
         options: {
           noff: true,
-          edit: true,
+          edit: false,
+          message: 'Merge dev into master for release',
           branch: 'dev',
           strategy: 'recursive',
           strategyOption: 'theirs',
