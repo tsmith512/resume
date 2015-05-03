@@ -288,33 +288,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
-    gitpush: {
-      github_branches: {
-        options: {
-          remote: 'github',
-          all: true,
-        }
-      },
-      github_tags: {
-        options: {
-          remote: 'github',
-          tags: true,
-        }
-      },
-      origin_branches: {
-        options: {
-          remote: 'origin',
-          all: true,
-        }
-      },
-      origin_tags: {
-        options: {
-          remote: 'origin',
-          tags: true,
-        }
-      },
-    },
   });
 
 
@@ -376,7 +349,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('release',[
     'build',
-    // 'test',
+    'test',
     'gitadd:add_all',
     'gitcommit:release_commit',
     'gitcheckout:master',
