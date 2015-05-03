@@ -4,6 +4,15 @@ module.exports = function (grunt) {
   var mozjpeg = require('imagemin-mozjpeg');
   var devURL = 'http://www.dev.resume.tsmith512.com';
 
+  Date.prototype.yyyymmdd = function() {
+    var yyyy = this.getFullYear().toString();
+    var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+    var dd  = this.getDate().toString();
+    return yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0]); // padding
+  };
+
+  var d = new Date();
+
   grunt.initConfig({
     watch: {
       options: {
@@ -230,6 +239,81 @@ module.exports = function (grunt) {
         dest: 'wpt/',
       },
     },
+
+    gitadd: {
+      add_all: {
+        files: {
+          src: ['.']
+        }
+      }
+    },
+
+    gitcommit: {
+      release_commit: {
+        options: {
+          message: "Rebuild, and run performance audit reports for tagged release " + d.yyyymmdd(),
+        },
+        files: {
+            // They've already been staged
+        }
+      }
+    },
+
+    gitcheckout: {
+      master: {
+        options: {
+          branch: 'master',
+        }
+      }
+    },
+
+    gitmerge: {
+      dev_to_master: {
+        options: {
+          noff: true,
+          edit: true,
+          branch: 'dev',
+          strategy: 'recursive',
+          strategyOption: 'theirs',
+        }
+      }
+    },
+
+    gittag: {
+      release: {
+        options: {
+          tag: d.yyyymmdd(),
+          message: 'Release ' + d.yyyymmdd(),
+        }
+      }
+    },
+
+    gitpush: {
+      github_branches: {
+        options: {
+          remote: 'github',
+          all: true,
+        }
+      },
+      github_tags: {
+        options: {
+          remote: 'github',
+          tags: true,
+        }
+      },
+      origin_branches: {
+        options: {
+          remote: 'origin',
+          all: true,
+        }
+      },
+      origin_tags: {
+        options: {
+          remote: 'origin',
+          tags: true,
+        }
+      },
+    },
   });
 
 
@@ -257,6 +341,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-pagespeed');
   grunt.loadNpmTasks('grunt-yslow');
   grunt.loadNpmTasks('grunt-wpt');
+  grunt.loadNpmTasks('grunt-git');
 
   // grunt build: Does a full rebuild of our icons, minifies images, compiles
   //   the Sass, and lints our js
@@ -286,5 +371,15 @@ module.exports = function (grunt) {
     'wpt',
     'pagespeed',
     'yslow',
+  ]);
+
+  grunt.registerTask('release',[
+    'build',
+    // 'test',
+    'gitadd:add_all',
+    'gitcommit:release_commit',
+    'gitcheckout:master',
+    'gitmerge:dev_to_master',
+    'gittag:release',
   ]);
 };
