@@ -3,6 +3,7 @@
 module.exports = function (grunt) {
   var mozjpeg = require('imagemin-mozjpeg');
   var devURL = 'http://www.dev.resume.tsmith512.com';
+  var config = require('./envConfig.json');
 
   Date.prototype.yyyymmdd = function() {
     var yyyy = this.getFullYear().toString();
@@ -229,6 +230,7 @@ module.exports = function (grunt) {
         locations: ['ec2-us-east-1:Chrome', 'ec2-us-west-1:Firefox'],
         runs: 5,
         timeout: 3600,
+        key: config.wpt_api_key,
       },
       main: {
         options: {
