@@ -220,7 +220,7 @@ module.exports = function (grunt) {
         files: [
           {
             src: devURL,
-          }
+          },
         ]
       },
     },

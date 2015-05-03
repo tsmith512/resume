@@ -11,14 +11,16 @@ URL:       dev.resume.tsmith512.com
 Strategy:  desktop
 Score:     99
 
-HTML size                                  | 35.31 kB
+CSS size                                   | 36.13 kB
+HTML size                                  | 35.9 kB
 Image size                                 | 30.98 kB
 JavaScript size                            | 25.66 kB
-Hosts                                      | 2
+CSS resources                              | 2
+Hosts                                      | 3
 JS resources                               | 1
-Resources                                  | 4
-Static resources                           | 2
-Total size                                 | 562 B
+Resources                                  | 6
+Static resources                           | 3
+Total size                                 | 703 B
 
 Leverage browser caching                   | 0.5
 
@@ -33,14 +35,16 @@ URL:       dev.resume.tsmith512.com
 Strategy:  mobile
 Score:     99
 
-HTML size                                  | 35.31 kB
+CSS size                                   | 36.13 kB
+HTML size                                  | 35.9 kB
 Image size                                 | 30.98 kB
 JavaScript size                            | 25.66 kB
-Hosts                                      | 2
+CSS resources                              | 2
+Hosts                                      | 3
 JS resources                               | 1
-Resources                                  | 4
-Static resources                           | 2
-Total size                                 | 560 B
+Resources                                  | 6
+Static resources                           | 3
+Total size                                 | 702 B
 
 Leverage browser caching                   | 0.75
 
@@ -53,7 +57,7 @@ Running "yslow:pages" (yslow) task
 >> -----------------------------------------------
 >> Test 1: http://www.dev.resume.tsmith512.com
 >> -----------------------------------------------
->> Requests: 4 [PASS]
->> YSlow score: 96/100 [PASS]
->> Page load time: 310ms [PASS]
->> Page weight: 90.834kb [PASS]
+>> Requests: 6 [PASS]
+>> YSlow score: 95/100 [PASS]
+>> Page load time: 660ms [PASS]
+>> Page weight: 157.086kb [PASS]
