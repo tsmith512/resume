@@ -1,0 +1,66 @@
+
+Running "wpt:main" (wpt) task
+Running webpagetest server[http://www.dev.resume.tsmith512.com] location[ec2-us-east-1:Chrome]
+Running webpagetest server[http://www.dev.resume.tsmith512.com] location[ec2-us-west-1:Firefox]
+
+Running "pagespeed:devDesktop" (pagespeed) task
+
+--------------------------------------------------------
+
+URL:       www.dev.resume.tsmith512.com
+Strategy:  desktop
+Score:     84
+
+CSS size                                   | 401.14 kB
+HTML size                                  | 16.16 kB
+Image size                                 | 43.37 kB
+JavaScript size                            | 25.66 kB
+CSS resources                              | 3
+Hosts                                      | 3
+JS resources                               | 1
+Resources                                  | 8
+Static resources                           | 5
+Total size                                 | 743 B
+
+Enable GZIP compression                    | 0.53
+Leverage browser caching                   | 2.5
+Minify CSS                                 | 0.08
+Minimize render blocking resources         | 14
+
+--------------------------------------------------------
+
+Running "pagespeed:devMobile" (pagespeed) task
+
+--------------------------------------------------------
+
+URL:       www.dev.resume.tsmith512.com
+Strategy:  mobile
+Score:     66
+
+CSS size                                   | 437.05 kB
+HTML size                                  | 16.16 kB
+Image size                                 | 43.37 kB
+JavaScript size                            | 25.66 kB
+CSS resources                              | 3
+Hosts                                      | 3
+JS resources                               | 1
+Resources                                  | 8
+Static resources                           | 5
+Total size                                 | 741 B
+
+Enable GZIP compression                    | 0.53
+Leverage browser caching                   | 3.75
+Minify CSS                                 | 0.07
+Minimize render blocking resources         | 48
+
+--------------------------------------------------------
+Running "yslow:pages" (yslow) task
+>> Testing 1 URLs, this might take a few moments...
+>> 
+>> -----------------------------------------------
+>> Test 1: http://www.dev.resume.tsmith512.com
+>> -----------------------------------------------
+>> Requests: 8 [PASS]
+>> YSlow score: 90/100 [PASS]
+>> Page load time: 444ms [PASS]
+>> Page weight: 169.574kb [PASS]
