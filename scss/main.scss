@@ -19,7 +19,7 @@ h2 {
   text-align: center;
   clear: both;
 
-  font-family: 'Tungsten Narrow A', 'Tungsten Narrow B';
+  font-family: 'Tungsten Narrow A', 'Tungsten Narrow B', 'Arial Narrow', 'Tahoma', 'Helvetica', 'Arial', sans-seif;
   font-weight: 500;
   font-size: 3em;
   text-transform: uppercase;
@@ -144,6 +144,10 @@ h3 {
       @include grid-span(3, 3);
       clear: both;
     }
+  }
+
+  .more {
+    display: block;
   }
 }
 
