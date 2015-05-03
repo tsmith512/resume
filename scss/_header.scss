@@ -47,6 +47,7 @@ header {
 
   dd.website {
     font-size: 2em;
+    a { font-size: 0.875em; }
     font-weight: 300;
     font-family: 'Tungsten Narrow A', 'Tungsten Narrow B', 'Arial Narrow', Tahoma, Helvetica, Arial, sans-serif;
     font-stretch: condensed;
@@ -70,6 +71,9 @@ header {
       z-index: 5;
       @include grid-span(1, 4);
       width: auto; // So the dd will end where the link does so the social icons are clickable
+    }
+    @include breakpoint($social-large) {
+      a { font-size: inherit; }
     }
   }
   dd.social {
@@ -102,7 +106,7 @@ header {
         width: 40px;
       }
       @include breakpoint($social-large) {
-        margin-left: 8px;
+        margin-left: 4px;
         width: 38px;
       }
 
