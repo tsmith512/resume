@@ -699,6 +699,9 @@ h3 {
     clear: both;
   }
 }
+.work .more, .education .more {
+  display: block;
+}
 
 .community h3, .community .date, .biblio h3, .biblio .date {
   font-size: 1.125em;
