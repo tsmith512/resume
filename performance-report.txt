@@ -12,15 +12,15 @@ Strategy:  desktop
 Score:     99
 
 CSS size                                   | 36.13 kB
-HTML size                                  | 35.9 kB
-Image size                                 | 30.98 kB
-JavaScript size                            | 25.66 kB
+HTML size                                  | 36.37 kB
+Image size                                 | 30.95 kB
+JavaScript size                            | 26.62 kB
 CSS resources                              | 2
 Hosts                                      | 3
 JS resources                               | 1
 Resources                                  | 6
 Static resources                           | 3
-Total size                                 | 703 B
+Total size                                 | 704 B
 
 Leverage browser caching                   | 0.5
 
@@ -36,15 +36,15 @@ Strategy:  mobile
 Score:     99
 
 CSS size                                   | 36.13 kB
-HTML size                                  | 35.9 kB
-Image size                                 | 30.98 kB
-JavaScript size                            | 25.66 kB
+HTML size                                  | 36.37 kB
+Image size                                 | 30.95 kB
+JavaScript size                            | 26.62 kB
 CSS resources                              | 2
 Hosts                                      | 3
 JS resources                               | 1
 Resources                                  | 6
 Static resources                           | 3
-Total size                                 | 702 B
+Total size                                 | 703 B
 
 Leverage browser caching                   | 0.75
 
@@ -59,5 +59,5 @@ Running "yslow:pages" (yslow) task
 >> -----------------------------------------------
 >> Requests: 6 [PASS]
 >> YSlow score: 95/100 [PASS]
->> Page load time: 660ms [PASS]
->> Page weight: 157.086kb [PASS]
+>> Page load time: 784ms [PASS]
+>> Page weight: 158.545kb [PASS]
