@@ -11,18 +11,20 @@ URL:       dev.resume.tsmith512.com
 Strategy:  desktop
 Score:     99
 
-CSS size                                   | 36.13 kB
-HTML size                                  | 36.37 kB
+CSS size                                   | 203.93 kB
+HTML size                                  | 36.15 kB
 Image size                                 | 30.95 kB
-JavaScript size                            | 26.62 kB
+JavaScript size                            | 26.6 kB
 CSS resources                              | 2
-Hosts                                      | 3
+Hosts                                      | 4
 JS resources                               | 1
-Resources                                  | 6
-Static resources                           | 3
-Total size                                 | 704 B
+Resources                                  | 7
+Static resources                           | 4
+Other size                                 | 550 B
+Total size                                 | 771 B
 
 Leverage browser caching                   | 0.5
+Minify CSS                                 | 0.06
 
 --------------------------------------------------------
 
@@ -35,16 +37,17 @@ URL:       dev.resume.tsmith512.com
 Strategy:  mobile
 Score:     99
 
-CSS size                                   | 36.13 kB
-HTML size                                  | 36.37 kB
+CSS size                                   | 220.3 kB
+HTML size                                  | 36.15 kB
 Image size                                 | 30.95 kB
-JavaScript size                            | 26.62 kB
+JavaScript size                            | 26.6 kB
 CSS resources                              | 2
-Hosts                                      | 3
+Hosts                                      | 4
 JS resources                               | 1
-Resources                                  | 6
-Static resources                           | 3
-Total size                                 | 703 B
+Resources                                  | 7
+Static resources                           | 4
+Other size                                 | 549 B
+Total size                                 | 769 B
 
 Leverage browser caching                   | 0.75
 
@@ -59,5 +62,5 @@ Running "yslow:pages" (yslow) task
 >> -----------------------------------------------
 >> Requests: 6 [PASS]
 >> YSlow score: 95/100 [PASS]
->> Page load time: 784ms [PASS]
->> Page weight: 158.545kb [PASS]
+>> Page load time: 844ms [PASS]
+>> Page weight: 128.313kb [PASS]
