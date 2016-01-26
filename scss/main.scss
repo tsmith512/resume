@@ -95,6 +95,12 @@ h3 {
       @include grid-span(1,4);
     }
     font-weight: 600;
+
+    .dates {
+      font-weight: 500;
+      font-size: 0.625em;
+      white-space: nowrap;
+    }
   }
 
   .organization {
