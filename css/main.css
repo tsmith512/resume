@@ -617,6 +617,11 @@ h3 {
     clear: none;
   }
 }
+.work .position .dates, .education .position .dates {
+  font-weight: 500;
+  font-size: 0.625em;
+  white-space: nowrap;
+}
 @media (max-width: 499px) {
   .work .organization, .education .organization {
     display: inline;
