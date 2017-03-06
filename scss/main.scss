@@ -1,9 +1,8 @@
 @import 'reset';
-@import 'toolkit';
-@import 'toolkit/kickstart';
-@import 'breakpoint';
-@import 'singularitygs';
-@import 'compass/css3';
+@import '../node_modules/sass-toolkit/stylesheets/toolkit';
+@import '../node_modules/sass-toolkit/stylesheets/toolkit/kickstart';
+@import '../node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import '../node_modules/singularitygs/stylesheets/singularitygs';
 
 // Different pieces:
 @import 'helpers';
