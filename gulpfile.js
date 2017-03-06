@@ -34,9 +34,9 @@ const concat = require('gulp-concat');
 const eslint = require('gulp-eslint');
 const fs = require('fs');
 const glob = require('glob');
-// const gulpicon = require('gulpicon/tasks/gulpicon');
-// const gulpiconConfig = require('./_icons/config.js');
-// const gulpiconFiles = glob.sync('./_icons/*.svg');
+const gulpicon = require('gulpicon/tasks/gulpicon');
+const gulpiconConfig = require('./gfx/icons/config.js');
+const gulpiconFiles = glob.sync('./gfx/icons/*.svg');
 const imagemin = require('gulp-imagemin');
 const resize = require('gulp-image-resize');
 const runSequence = require('run-sequence');
@@ -74,7 +74,7 @@ gulp.task('sass', 'Compile Sass to CSS', () => {
 
 
 // IMAGES
-// gulp.task('icons', false, gulpicon(gulpiconFiles, gulpiconConfig));
+gulp.task('icons', false, gulpicon(gulpiconFiles, gulpiconConfig));
 
 gulp.task('graphics', 'Compress site graphics and aggregate icons', ['icons'], () => {
   return gulp.src(['./gfx/**/*.*'])
