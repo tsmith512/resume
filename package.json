@@ -29,6 +29,6 @@
     "singularitygs": "^1.7.1"
   },
   "scripts": {
-      "install": "git clone https://github.com/at-import/Singularity-extras.git -b 1.x.x node_modules/singularity-extras"
+    "install": "git clone https://github.com/at-import/Singularity-extras.git -b 1.x.x node_modules/singularity-extras"
   }
 }

@@ -75,6 +75,7 @@ gulp.task('sass', 'Compile Sass to CSS', () => {
     .pipe(gulp.dest('./dist/css'));
 });
 
+/* @TODO: We had critical CSS before; let's get that back */
 
 // IMAGES
 gulp.task('icons', false, gulpicon(gulpiconFiles, gulpiconConfig));
@@ -95,7 +96,7 @@ gulp.task('js', 'Aggregate JavaScript', () => {
 
 
 // HTML
-gulp.task('html', function() {
+gulp.task('html', 'Aggregate and minify HTML', ['js', 'sass'], () => {
   return gulp.src('source.html')
     .pipe(htmlmin({
       collapseWhitespace: true,
@@ -118,8 +119,8 @@ gulp.task('html', function() {
 
 */
 
-gulp.task('build', 'Run all site-generating tasks: sass, js, graphics, icons, htaccess then jekyll', (cb) => {
-  runSequence(['sass', 'graphics', 'icons', 'js'], 'jekyll', cb);
+gulp.task('build', 'Run all site-generating tasks: sass, js, graphics, icons, then html', (cb) => {
+  runSequence(['sass', 'graphics', 'icons', 'js'], 'html', cb);
 });
 
 gulp.task('publish-s3', 'Sync the site to S3', (cb) => {
@@ -134,7 +135,7 @@ gulp.task('publish-s3', 'Sync the site to S3', (cb) => {
 
   // define custom headers
   var headers = {
-    'Cache-Control': 'max-age=315360000, no-transform, public'
+    'Cache-Control': 'max-age=2592000, no-transform, public'
   };
 
   return gulp.src('./dist/**/*.*')
