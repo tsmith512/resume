@@ -39,6 +39,7 @@ const gulpiconConfig = require('./gfx/icons/config.js');
 const gulpiconFiles = glob.sync('./gfx/icons/*.svg');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
+const inlinesource = require('gulp-inline-source');
 const rename = require("gulp-rename");
 const resize = require('gulp-image-resize');
 const runSequence = require('run-sequence');
@@ -101,6 +102,10 @@ gulp.task('html', function() {
       conservativeCollapse: true,
     }))
     .pipe(rename('index.html'))
+    .pipe(inlinesource({
+      compress: false,
+      rootpath: 'dist/',
+    }))
     .pipe(gulp.dest('dist'));
 });
 
