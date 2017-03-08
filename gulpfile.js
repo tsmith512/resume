@@ -37,7 +37,9 @@ const glob = require('glob');
 const gulpicon = require('gulpicon/tasks/gulpicon');
 const gulpiconConfig = require('./gfx/icons/config.js');
 const gulpiconFiles = glob.sync('./gfx/icons/*.svg');
+const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
+const rename = require("gulp-rename");
 const resize = require('gulp-image-resize');
 const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
@@ -88,6 +90,18 @@ gulp.task('js', 'Aggregate JavaScript', () => {
   .pipe(concat('lib.js'))
   .pipe(uglify())
   .pipe(gulp.dest('./dist/js/'));
+});
+
+
+// HTML
+gulp.task('html', function() {
+  return gulp.src('source.html')
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      conservativeCollapse: true,
+    }))
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('dist'));
 });
 
 /*
