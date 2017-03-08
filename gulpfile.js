@@ -82,6 +82,13 @@ gulp.task('graphics', 'Compress site graphics and aggregate icons', ['icons'], (
   .pipe(gulp.dest('./dist/gfx/'));
 });
 
+// JAVASCRIPT
+gulp.task('js', 'Aggregate JavaScript', () => {
+  return gulp.src(['js/googleanalytics.js','node_modules/fg-loadcss/src/loadCSS.js','node_modules/fg-loadcss/src/cssrelpreload.js'])
+  .pipe(concat('lib.js'))
+  .pipe(gulp.dest('./dist/js/'));
+});
+
 /*
      _ _         _           _ _     _
  ___(_) |_ ___  | |__  _   _(_) | __| |
