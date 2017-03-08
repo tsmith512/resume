@@ -1,3 +1,0 @@
-[submodule "js/vendor/loadCSS"]
-	path = js/vendor/loadCSS
-	url = git@github.com:filamentgroup/loadCSS.git
