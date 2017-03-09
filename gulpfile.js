@@ -80,7 +80,12 @@ gulp.task('sass', 'Compile Sass to CSS', () => {
 // IMAGES
 gulp.task('icons', false, gulpicon(gulpiconFiles, gulpiconConfig));
 
-gulp.task('graphics', 'Compress site graphics and aggregate icons', ['icons'], () => {
+gulp.task('favicons', 'Copy favicons into position', () => {
+  return gulp.src(['./favicon/**/*.*'])
+  .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('graphics', 'Compress site graphics and aggregate icons', ['icons', 'favicons'], () => {
   return gulp.src(['./gfx/**/*.*'])
   .pipe(imagemin())
   .pipe(gulp.dest('./dist/gfx/'));
