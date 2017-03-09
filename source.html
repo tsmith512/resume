@@ -24,12 +24,9 @@ I'd love to hear from you.
   <meta name="viewport" content="width=device-width,minimum-scale=1" />
   <title>Taylor Smith: Front-end Web Developer and Graphic Designer in Austin, Texas</title>
   <link rel="canonical" href="http://www.tsmith512.com/" />
-  <link rel="stylesheet" href="dist/critical.min.css?inline" />
-  <script src="dist/head.min.js?inline"></script>
-  <script>
-    loadCSS("//cloud.typography.com/6795652/670606/css/fonts.css");
-    loadCSS("dist/secondary.min.css");
-  </script>
+  <link rel="stylesheet" href="css/all.css" inline />
+  <link rel="preload" href="/dist/gfx/icons/icons.data.svg.css" as="style" onload="this.rel='stylesheet'" />
+  <link rel="preload" href="//cloud.typography.com/6795652/670606/css/fonts.css" as="style" onload="this.rel='stylesheet'" />
 </head>
 <body>
   <div id="wrap">
@@ -39,7 +36,7 @@ I'd love to hear from you.
       <h1>Taylor Smith</h1>
       <dl class="contact">
         <dt>Website</dt>
-        <dd class="website"><a href="http://www.tsmithcreative.com/?utm_source=tsmith512&utm_medium=website&utm_campaign=tsmith512" title="Portfolio and Blog">tsmithcreative.com</a></dd>
+        <dd class="website"><a href="https://www.tsmithcreative.com/?utm_source=tsmith512&utm_medium=website&utm_campaign=tsmith512" title="Portfolio and Blog">tsmithcreative.com</a></dd>
         <dt>Social Media</dt>
         <dd class="social">
           <ul>
@@ -47,8 +44,6 @@ I'd love to hear from you.
             <li><a href="https://linkedin.com/in/tsmith512" class="linkedin">LinkedIn</a></li>
             <li><a href="https://github.com/tsmith512" class="github">GitHub</a></li>
             <li><a href="https://drupal.org/u/tsmith512" class="drupal">Drupal.org</a></li>
-            <li><a href="https://www.behance.net/tsmith512" class="behance">Behance</a></li>
-            <li><a href="https://500px.com/tsmith512" class="fpx">500px</a></li>
             <li><a href="https://facebook.com/tsmith512" class="facebook">Facebook</a></li>
           </ul>
         </dd>
@@ -293,6 +288,6 @@ I'd love to hear from you.
   <footer>
     The source of this document is <a href="https://github.com/tsmith512/resume">shared on GitHub</a>.
   </footer>
-  <script src="dist/foot.min.js?inline"></script>
+  <script src="js/lib.js" inline></script>
 </body>
 </html>

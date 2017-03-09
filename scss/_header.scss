@@ -99,15 +99,15 @@ header {
 
     a {
       display: block;
-      width: 30px;
+      width: 32px;
       height: 48px;
 
       @include breakpoint($header-mini) {
-        width: 40px;
+        width: 34px;
       }
       @include breakpoint($social-large) {
         margin-left: 4px;
-        width: 38px;
+        width: 36px;
       }
 
       text-indent: 100%;
@@ -134,7 +134,7 @@ header {
     height: 0;
     padding-top: 75%;
     background: transparent center center no-repeat;
-    background-image: inline-image('logo.svg');
+    background-image: url('/gfx/logo.svg');
     background-size: contain;
   }
 
@@ -172,7 +172,7 @@ header {
     width: 100%;
     max-width: 175px;
     display: block;
-    background: image-url('avatar.png') center center no-repeat;
+    background: url('gfx/avatar.png') center center no-repeat;
     background-size: contain;
   }
 
